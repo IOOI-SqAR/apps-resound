@@ -1,0 +1,498 @@
+{
+    IBClasses = (
+        {
+            ACTIONS = {
+                changeDisplayModeToMinMax = id; 
+                changeDisplayModeToOscilliscopic = id; 
+                getInspector = id; 
+                update = id; 
+            }; 
+            CLASS = AttributesInspector; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                channels = id; 
+                display_matrix = id; 
+                fileController = id; 
+                format = id; 
+                fragmented = id; 
+                infoWindow = id; 
+                inspector = id; 
+                inspectorController = id; 
+                min_max_button = id; 
+                oscilliscopic_button = id; 
+                playOrDisplay = id; 
+                rate = id; 
+                samples = id; 
+                seconds = id; 
+            }; 
+            SUPERCLASS = NSObject; 
+        }, 
+        {
+            ACTIONS = {
+                displayRecordFormatPanel = id; 
+                meterWillUpdateOnOwn = id; 
+                pauseDown = id; 
+                playDown = id; 
+                recordDown = id; 
+                setFormatToMe = id; 
+                setLeft = id; 
+                setMono = id; 
+                setMonoChannels = id; 
+                setRateToMe = id; 
+                setRecordingLength = id; 
+                setRight = id; 
+                setSourceLine = id; 
+                setSourceMic = id; 
+                setStereoChannels = id; 
+                showConsole = id; 
+                stopDown = id; 
+            }; 
+            CLASS = ConsoleManager; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                channels = id; 
+                console = id; 
+                fileController = id; 
+                formatMenu = id; 
+                formatWindow = id; 
+                hidden_window = id; 
+                leftRecordGain = id; 
+                light = id; 
+                maxrate = id; 
+                meter = id; 
+                minrate = id; 
+                monoRecordGain = id; 
+                pauseButton = id; 
+                playButton = id; 
+                rateField = id; 
+                rateMenu = id; 
+                recordButton = id; 
+                recordLengthField = id; 
+                rightRecordGain = id; 
+                soundManager = id; 
+                soundTracker = id; 
+                source = id; 
+                stopButton = id; 
+            }; 
+            SUPERCLASS = Object; 
+        }, 
+        {
+            ACTIONS = {
+                compactSound = id; 
+                convert = id; 
+                okayConvert = id; 
+                turnOffMenu = id; 
+                turnOnMenu = id; 
+            }; 
+            CLASS = EditController; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                channelMatrix = id; 
+                compactButton = id; 
+                convertPanel = id; 
+                fileController = id; 
+                formatMenu = id; 
+                samplingRateField = id; 
+                samplingRateMatrix = id; 
+            }; 
+            SUPERCLASS = NSObject; 
+        }, 
+        {
+            ACTIONS = {NoDataToSave = id; Okayed = id; }; 
+            CLASS = ErrorController; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                NoDataToSaveWindow = id; 
+                NoSoundWindow = id; 
+                OperationFailedWindow = id; 
+                SixteenBitWindow = id; 
+            }; 
+            SUPERCLASS = Object; 
+        }, 
+        {
+            CLASS = ErrorHandler; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {errorText = id; errorWindow = id; }; 
+            SUPERCLASS = NSObject; 
+        }, 
+        {
+            ACTIONS = {openResoundHomePage = id; openResoundOnlineHelp = id; }; 
+            CLASS = Extra; 
+            LANGUAGE = ObjC; 
+            SUPERCLASS = NSObject; 
+        }, 
+        {
+            ACTIONS = {
+                cancelClosePanel = id; 
+                cancelQuitPanel = id; 
+                close = id; 
+                currentSound = id; 
+                currentSoundView = id; 
+                currentWindow = id; 
+                doPageLayout = id; 
+                newSoundFromMicrophone = id; 
+                newSoundFromPasteBoard = id; 
+                noSaveClosePanel = id; 
+                noSaveQuitPanel = id; 
+                open = id; 
+                print = id; 
+                quit = id; 
+                revert = id; 
+                save = id; 
+                saveAll = id; 
+                saveAs = id; 
+                saveClosePanel = id; 
+                saveQuitPanel = id; 
+            }; 
+            CLASS = FileController; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                closeButton = id; 
+                consoleManager = id; 
+                editController = id; 
+                infoPanel = id; 
+                inspectorManager = id; 
+                junkField = id; 
+                mainMenu = id; 
+                moduleController = id; 
+                preferencesManager = id; 
+                revertButton = id; 
+                saveAllButton = id; 
+                saveAsButton = id; 
+                saveButton = id; 
+                selectionInspector = id; 
+                soundManager = id; 
+                soundViewCursor = id; 
+            }; 
+            SUPERCLASS = NSObject; 
+        }, 
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {
+            ACTIONS = {ChangeXAxis = id; GetInspector = id; Update = id; XAxisChanged = id; }; 
+            CLASS = Grid; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                TheFileController = id; 
+                TheInspector = id; 
+                TheInspectorController = id; 
+                display_axis = id; 
+                display_format = id; 
+                major_tick_color = id; 
+                major_tick_spacing = id; 
+                minor_tick_color = id; 
+                minor_tick_spacing = id; 
+                minor_tick_spacing_format = id; 
+            }; 
+            SUPERCLASS = Object; 
+        }, 
+        {
+            ACTIONS = {DisplayContributorsPanel = id; DisplayInfoPanel = id; windowDidClose = id; }; 
+            CLASS = HelpManager; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {ContributorsPanel = id; InfoPanel = id; InfoVolumeLight = id; }; 
+            SUPERCLASS = Object; 
+        }, 
+        {
+            ACTIONS = {
+                CompactSound = id; 
+                GetInspector = id; 
+                changeDisplayModeToMinMax = id; 
+                changeDisplayModeToOscilliscopic = id; 
+            }; 
+            CLASS = InfoManager; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                Channels = id; 
+                Format = id; 
+                Fragmented = id; 
+                InfoWindow = id; 
+                Rate = id; 
+                Samples = id; 
+                Seconds = id; 
+                TheEditController = id; 
+                TheFileController = id; 
+                TheInspector = id; 
+                TheInspectorController = id; 
+                min_max_button = id; 
+                oscilliscopic_button = id; 
+            }; 
+            SUPERCLASS = Object; 
+        }, 
+        {
+            ACTIONS = {getInspector = id; okay = id; revert = id; update = id; }; 
+            CLASS = InfoStringInspector; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                fileController = id; 
+                infoString = id; 
+                inspector = id; 
+                inspectorController = id; 
+            }; 
+            SUPERCLASS = NSObject; 
+        }, 
+        {
+            ACTIONS = {
+                displayAttributes = id; 
+                displayInfoString = id; 
+                displayInspector = id; 
+                displayMarks = id; 
+                displaySelection = id; 
+                displayZoom = id; 
+            }; 
+            CLASS = InspectorManager; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                attributesInspector = id; 
+                fileController = id; 
+                infoStringInspector = id; 
+                inspector = id; 
+                inspectorView = id; 
+                marksInspector = id; 
+                nothingInspector = id; 
+                popUpListButton = id; 
+                selectionInspector = id; 
+                zoomInspector = id; 
+            }; 
+            SUPERCLASS = NSObject; 
+        }, 
+        {
+            CLASS = Mail; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {mailSpeaker = id; }; 
+            SUPERCLASS = Object; 
+        }, 
+        {
+            ACTIONS = {
+                changeGrid = id; 
+                getInspector = id; 
+                gridChanged = id; 
+                setToDecibel = id; 
+                setToPercent = id; 
+                setToSamples = id; 
+                setToSeconds = id; 
+                setToSixteen = id; 
+                setToTwenty = id; 
+                setToTwentyFour = id; 
+                update = id; 
+            }; 
+            CLASS = MarksInspector; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                amplitude = id; 
+                amplitude_menu = id; 
+                fileController = id; 
+                inspector = id; 
+                inspectorController = id; 
+                major_tick_field = id; 
+                minor_tick_field = id; 
+                minor_tick_menu = id; 
+                scroll_to_reflect = id; 
+                ticks = id; 
+                zero_line = id; 
+            }; 
+            SUPERCLASS = NSObject; 
+        }, 
+        {CLASS = ModSound; LANGUAGE = ObjC; SUPERCLASS = Sound; }, 
+        {
+            CLASS = Module; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {TheModuleController = id; TheModuleMenuNode = id; }; 
+            SUPERCLASS = Object; 
+        }, 
+        {
+            ACTIONS = {cancelled = id; okayed = id; turnOffMenu = id; turnOnMenu = id; }; 
+            CLASS = ModuleController; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                adjustButton = id; 
+                compactPanel = id; 
+                fileController = id; 
+                fileName = id; 
+                infoManager = id; 
+                loadPanel = id; 
+                moduleHelpView = id; 
+                moduleHelpWindow = id; 
+                pathName = id; 
+                selectionManager = id; 
+                soundManager = id; 
+                zoomController = id; 
+            }; 
+            SUPERCLASS = NSObject; 
+        }, 
+        {
+            ACTIONS = {preferencesOkayed = id; startPreferencesPanel = id; }; 
+            CLASS = PreferencesManager; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                amplitudeButton = id; 
+                attributesMatrix = id; 
+                backupButton = id; 
+                convertOnOpenButton = id; 
+                displayAmplitudeButton = id; 
+                displayTicksButton = id; 
+                displayZeroLineButton = id; 
+                majorTicksField = id; 
+                minMaxDisplayButton = id; 
+                minorTicksField = id; 
+                minorTicksFormatButton = id; 
+                oscilliscopicDisplayButton = id; 
+                playOnOpenButton = id; 
+                preferencesPanel = id; 
+                scrollToReflectSoundButton = id; 
+                zoomMatrix = id; 
+                zoomedInButton = id; 
+                zoomedOutButton = id; 
+            }; 
+            SUPERCLASS = NSObject; 
+        }, 
+        {
+            ACTIONS = {mailMessage = id; }; 
+            CLASS = ResoundMail; 
+            LANGUAGE = ObjC; 
+            SUPERCLASS = Mail; 
+        }, 
+        {
+            ACTIONS = {
+                changeSelection = id; 
+                changeSelectionPercent = id; 
+                changeSelectionPercentLength = id; 
+                changeSelectionSamples = id; 
+                changeSelectionSamplesLength = id; 
+                changeSelectionSeconds = id; 
+                changeSelectionSecondsLength = id; 
+                getInspector = id; 
+                reset = id; 
+                update = id; 
+            }; 
+            CLASS = SelectionInspector; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                fileController = id; 
+                inspector = id; 
+                inspectorController = id; 
+                selectionEnd = id; 
+                selectionLength = id; 
+                selectionPercentEnd = id; 
+                selectionPercentLength = id; 
+                selectionPercentStart = id; 
+                selectionSecondsEnd = id; 
+                selectionSecondsLength = id; 
+                selectionSecondsStart = id; 
+                selectionStart = id; 
+                viewEnd = id; 
+                viewLength = id; 
+                viewPercentEnd = id; 
+                viewPercentLength = id; 
+                viewPercentStart = id; 
+                viewSecondsEnd = id; 
+                viewSecondsLength = id; 
+                viewSecondsStart = id; 
+                viewStart = id; 
+            }; 
+            SUPERCLASS = NSObject; 
+        }, 
+        {
+            ACTIONS = {ChangeSelection = id; GetInspector = id; Reset = id; Update = id; }; 
+            CLASS = SelectionManager; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                SelectionEnd = id; 
+                SelectionLength = id; 
+                SelectionSecondsEnd = id; 
+                SelectionSecondsLength = id; 
+                SelectionSecondsStart = id; 
+                SelectionStart = id; 
+                SelectionWindow = id; 
+                TheFileController = id; 
+                TheInspector = id; 
+                TheInspectorController = id; 
+                ViewEnd = id; 
+                ViewLength = id; 
+                ViewSecondsEnd = id; 
+                ViewSecondsLength = id; 
+                ViewSecondsStart = id; 
+                ViewStart = id; 
+            }; 
+            SUPERCLASS = Object; 
+        }, 
+        {CLASS = Sound; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {
+            ACTIONS = {didPlay = id; didRecord = id; play = id; stop = id; }; 
+            CLASS = SoundManager; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {consoleManager = id; fileController = id; }; 
+            SUPERCLASS = NSObject; 
+        }, 
+        {CLASS = SoundMeter; LANGUAGE = ObjC; SUPERCLASS = NSView; }, 
+        {CLASS = SoundTable; LANGUAGE = ObjC; SUPERCLASS = Object; }, 
+        {CLASS = SoundView; LANGUAGE = ObjC; SUPERCLASS = NSView; }, 
+        {CLASS = StringTable; LANGUAGE = ObjC; SUPERCLASS = Object; }, 
+        {
+            ACTIONS = {drawSelf = id; }; 
+            CLASS = UpdateSoundView; 
+            LANGUAGE = ObjC; 
+            SUPERCLASS = SoundView; 
+        }, 
+        {
+            ACTIONS = {begin = id; }; 
+            CLASS = VolumeController; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {deemphasis = id; left = id; mute = id; right = id; volume_panel = id; }; 
+            SUPERCLASS = Object; 
+        }, 
+        {
+            ACTIONS = {
+                GetInspector = id; 
+                ZoomChanged = id; 
+                findSelection = id; 
+                takeFloatValueFromMe = id; 
+                toggleContinuousZoom = id; 
+                zoomAllIn = id; 
+                zoomAllOut = id; 
+                zoomInOneReduction = id; 
+                zoomOutOneReduction = id; 
+                zoomToSelection = id; 
+            }; 
+            CLASS = ZoomController; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                ReductionField = id; 
+                TheFileController = id; 
+                TheInspector = id; 
+                TheInspectorController = id; 
+                ZoomField = id; 
+                ZoomSlider = id; 
+                continuous_button = id; 
+            }; 
+            SUPERCLASS = Object; 
+        }, 
+        {
+            ACTIONS = {
+                findSelection = id; 
+                getInspector = id; 
+                takeFloatValueFromMe = id; 
+                toggleContinuousZoom = id; 
+                update = id; 
+                zoomAllIn = id; 
+                zoomAllOut = id; 
+                zoomChanged = id; 
+                zoomInOneReduction = id; 
+                zoomOutOneReduction = id; 
+                zoomToSelection = id; 
+            }; 
+            CLASS = ZoomInspector; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                continuous_button = id; 
+                fileController = id; 
+                inspector = id; 
+                inspectorController = id; 
+                reductionField = id; 
+                zoomField = id; 
+                zoomSlider = id; 
+            }; 
+            SUPERCLASS = NSObject; 
+        }
+    ); 
+    IBVersion = 1; 
+}

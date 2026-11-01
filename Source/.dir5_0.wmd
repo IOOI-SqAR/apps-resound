@@ -1,0 +1,6 @@
+{
+    RootNode = "~/Projets/Resound/Resound3DR2/Source"; 
+    Toolbar = Yes; 
+    ViewName = Browser; 
+    WindowFrame = "{x = 205; y = 150; width = 596; height = 623}"; 
+}

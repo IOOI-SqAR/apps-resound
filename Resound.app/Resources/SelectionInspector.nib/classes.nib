@@ -1,0 +1,90 @@
+{
+    IBClasses = (
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {
+            ACTIONS = {
+                changeSelection = id; 
+                changeSelectionPercent = id; 
+                changeSelectionPercentLength = id; 
+                changeSelectionSamples = id; 
+                changeSelectionSamplesLength = id; 
+                changeSelectionSeconds = id; 
+                changeSelectionSecondsLength = id; 
+                getInspector = id; 
+                reset = id; 
+                update = id; 
+            }; 
+            CLASS = SelectionInspector; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                fileController = id; 
+                inspector = id; 
+                inspectorController = id; 
+                selectionEnd = id; 
+                selectionLength = id; 
+                selectionPercentEnd = id; 
+                selectionPercentLength = id; 
+                selectionPercentStart = id; 
+                selectionSecondsEnd = id; 
+                selectionSecondsLength = id; 
+                selectionSecondsStart = id; 
+                selectionStart = id; 
+                viewEnd = id; 
+                viewLength = id; 
+                viewPercentEnd = id; 
+                viewPercentLength = id; 
+                viewPercentStart = id; 
+                viewSecondsEnd = id; 
+                viewSecondsLength = id; 
+                viewSecondsStart = id; 
+                viewStart = id; 
+            }; 
+            SUPERCLASS = NSObject; 
+        }, 
+        {
+            ACTIONS = {
+                ChangeSelection = id; 
+                ChangeViewSamples = id; 
+                ChangeViewSeconds = id; 
+                GetInspector = id; 
+                Reset = id; 
+                Update = id; 
+                changeSelectionPercent = id; 
+                changeSelectionPercentLength = id; 
+                changeSelectionSamples = id; 
+                changeSelectionSamplesLength = id; 
+                changeSelectionSeconds = id; 
+                changeSelectionSecondsLength = id; 
+                toggleContinuousView = id; 
+            }; 
+            CLASS = SelectionManager; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                SelectionEnd = id; 
+                SelectionLength = id; 
+                SelectionPercentEnd = id; 
+                SelectionPercentLength = id; 
+                SelectionPercentStart = id; 
+                SelectionSecondsEnd = id; 
+                SelectionSecondsLength = id; 
+                SelectionSecondsStart = id; 
+                SelectionStart = id; 
+                SelectionWindow = id; 
+                TheFileController = id; 
+                TheInspector = id; 
+                TheInspectorController = id; 
+                ViewEnd = id; 
+                ViewLength = id; 
+                ViewPercentEnd = id; 
+                ViewPercentLength = id; 
+                ViewPercentStart = id; 
+                ViewSecondsEnd = id; 
+                ViewSecondsLength = id; 
+                ViewSecondsStart = id; 
+                ViewStart = id; 
+            }; 
+            SUPERCLASS = Object; 
+        }
+    ); 
+    IBVersion = 1; 
+}

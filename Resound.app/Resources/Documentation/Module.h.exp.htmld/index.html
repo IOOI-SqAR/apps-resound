@@ -1,0 +1,39 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<!-- Created with LatinByrd III -->
+<!-- File: /private/tmp/O_Help/Help/Module.h.rtfd -->
+<!-- Date: Thu Apr 30 20:19:00 1998 -->
+<head>
+<title>Module.h</title>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" link="#0000FF" alink="#FF00FF" vlink="#FF0000">
+
+<basefont size=3>
+
+<p>
+
+<p><font size=+2><b>Module.h</b></font>
+
+<hr noshade size=1>
+
+<p>All modules you create should subclass from Module.h.&nbsp; Module.h contains two data items that are defined when the&nbsp; instance is initialized:
+
+<p><img src="../Images/CheckMark.gif" width=10 height=11> <b>TheModuleController</b> is the instance that &#34;speaks&#34; to modules, using the protocol <b>ModuleProtocol <a href="../ModuleProtocol.h.htmld/index.html"><img src="../Images/link.gif" width=10 height=10 vspace=3 border=0></a></b>.&nbsp; You don't need to know anything more about the Module Controller other than that it is responsible for loading, maintaining, and communicating with modules, and that it is your gateway to communicating with Resound.
+
+<p><img src="../Images/CheckMark.gif" width=10 height=11> <b>TheModuleMenuNode</b> is the root node of your node tree for menu items you want to create in Resound's Modules menu. This is initially set to NULL--you are responsible for setting it a ModuleMenuNode, and setting up that node and its subnodes. For more information on this, see <b>ModuleMenuNode.h <a href="../ModuleMenuNode.h.htmld/index.html"><img src="../Images/link.gif" width=10 height=10 vspace=3 border=0></a></b>. Always set up menu node information by overriding init, but remember to call [super init] first.
+
+<p>There are three chief methods in Module:
+
+<p><img src="../Images/CheckMark.gif" width=10 height=11> <b>init:</b>&nbsp; where you set up your ModuleMenuNode.&nbsp; See above.
+
+<p><img src="../Images/CheckMark.gif" width=10 height=11> <b>setModuleControllerTo:</b>&nbsp; Resound calls this to set up TheModuleController.&nbsp; You should ignore this call.
+
+<p><img src="../Images/CheckMark.gif" width=10 height=11> <b>getModuleMenuNode:</b>&nbsp; Resound calls this to get your ModuleMenuNode.&nbsp; It is called soon after init:, so be sure to have your node set up by then.
+
+<p>In addition, Module provides overridable auxillary methods to automatically inform your module about changes in the system.
+
+
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+{\rtf0\ansi{\fonttbl\f0\fswiss Helvetica;}
+\paperw9840
+\paperh12160
+\margl120
+\margr120
+{\colortbl;\red0\green0\blue0;\red85\green85\blue85;}
+\pard\tx520\tx1060\tx1600\tx2120\tx2660\tx3200\tx3720\tx4260\tx4800\tx5320\f0\b\i0\ulnone\fs24\fc1\cf1  \
+
+\fs72 FFT
+\gray333\fc2\cf2 \
+
+\fs24\gray0\fc1\cf1 Sean Luke 	
+\b0 seanl@cs.umd.edu
+\b \
+November 28, 1997
+\fs72 \
+
+\fs24 \
+
+\b0 FFT provides an FFT (Fast Fourier Transform) view of a sound selection.  FFT works only with 16-bit mono 44KHz sounds.\
+\
+FFT adds to the Modules menu the following menu options:\
+\
+
+\b 	
+{\pard\tx520\tx1060\tx1600\tx2120\tx2660\tx3200\tx3720\tx4260\tx4800\tx5320\fc1\cf1{\NeXTGraphic232 paste.tiff \width2500 \height420
+}
+¬}\pard\tx520\tx1060\tx1600\tx2120\tx2660\tx3200\tx3720\tx4260\tx4800\tx5320\f0\b\i0\ulnone\fs24\fc1\cf1 \
+	\
+		\
+FFT...\
+
+\b0 This brings up a panel which lets you view a Fast-Fourier Transform of a sound selection.  An FFT displays the sound as a graph of the amplitude (and phase) of each sound frequency.  Pressing the 
+\b Generate
+\b0  button generates the FFT.  Note that full-spectral FFTs are not fast (unlike their name suggests!) for large sounds.\
+\
+After the FFT has been generated, it can be viewed in two ways.  
+\i Linear
+\i0  displays the amplitudes as a ratio of the maximum possible sound amplitude (hence between 0 and 1).  
+\i Decibel
+\i0  displays the amplitudes as decibel values from 0 to negative infinity.  The FFT panel always scales the FFT display so that the maximum value is at the top of the display.  In the 
+\i Minimum Db
+\i0  field can specify the minimum decibel value you'd like to see.  Upon initial Generation, the FFT panel fills this field with the minimum Db value that exists in the sound (which is probably much lower than you'll want).\
+
+\pard\tx533\tx1067\tx1601\tx2135\tx2668\tx3202\tx3736\tx4270\tx4803\tx5337\fc1\cf1 \
+Clicking on the FFT amplitude graph will give the amplitude and frequency for that particular cursor position.\
+
+}

@@ -1,0 +1,94 @@
+{
+    IBClasses = (
+        {
+            ACTIONS = {
+                PauseDown = id; 
+                PlayDown = id; 
+                RecordDown = id; 
+                ShowConsole = id; 
+                StopDown = id; 
+                meterWillUpdateOnOwn = id; 
+                setMono = id; 
+                setStereo = id; 
+            }; 
+            CLASS = ConsoleManager; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                Console = id; 
+                Meter = id; 
+                PauseButton = id; 
+                PlayButton = id; 
+                RecordButton = id; 
+                StopButton = id; 
+                TheFileController = id; 
+                TheSoundManager = id; 
+                channels = id; 
+                formatMenu = id; 
+                formatWindow = id; 
+                rateField = id; 
+                rateMenu = id; 
+                soundTracker = id; 
+                source = id; 
+            }; 
+            SUPERCLASS = Object; 
+        }, 
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {
+            ACTIONS = {
+                run = id; 
+                sendDeemphasis = id; 
+                sendLeft = id; 
+                sendLeftPeak = id; 
+                sendMono = id; 
+                sendMonoPeak = id; 
+                sendMute = id; 
+                sendPercent = id; 
+                sendRatio = id; 
+                sendRight = id; 
+                sendRightPeak = id; 
+                sendSamples = id; 
+                sendSeconds = id; 
+                setDeemphasisTo = id; 
+                setMuteTo = id; 
+                setVolumeTo = id; 
+                stop = id; 
+            }; 
+            CLASS = SoundTracker; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {sound = id; target = id; }; 
+            SUPERCLASS = Object; 
+        }, 
+        {
+            ACTIONS = {
+                begin = id; 
+                setDeemphasis = id; 
+                setHeadphonesMute = id; 
+                setLeft = id; 
+                setLineOutMute = id; 
+                setMonitor = id; 
+                setMonitorMute = id; 
+                setMono = id; 
+                setMute = id; 
+                setRamping = id; 
+                setRight = id; 
+            }; 
+            CLASS = VolumeController; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                bothKnob = id; 
+                deemphasisKnob = id; 
+                headphonesMuteKnob = id; 
+                leftKnob = id; 
+                lineOutMuteKnob = id; 
+                monitorKnob = id; 
+                monitorMuteKnob = id; 
+                muteKnob = id; 
+                rampingKnob = id; 
+                rightKnob = id; 
+                volumePanel = id; 
+            }; 
+            SUPERCLASS = Object; 
+        }
+    ); 
+    IBVersion = 1; 
+}

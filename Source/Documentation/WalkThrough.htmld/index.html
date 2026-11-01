@@ -1,0 +1,205 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<!-- Created with LatinByrd III -->
+<!-- File: /private/tmp/O_Help/Help/WalkThrough.rtfd -->
+<!-- Date: Thu Apr 30 20:19:07 1998 -->
+<head>
+<title>WalkThrough</title>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" link="#0000FF" alink="#FF00FF" vlink="#FF0000">
+
+<basefont size=3>
+
+<p>
+
+<p><font size=+2><b>A Walk-Through</b></font>
+
+<hr noshade size=1>
+
+<p><b>What We're Making</b><br>
+We'll create <i>Zero.rmod</i>, a simple module that sets every value in the selection of a sound to zero.&nbsp; It will work on 8-bit, 16-bit, float-valued, and double-valued sounds.
+
+<p><b>Create a Project</b><br>
+Start creating the folder <i>Zero</i> wherever convenient.&nbsp; This will be the project folder for Zero.&nbsp; Next, launch ProjectBuilder.app and choose <i>Project:New...</i>&nbsp; Locate your Zero folder.&nbsp; Change the Project Type to <i>Bundle,</i> and save the project in the Zero folder.
+
+<p><b>Adding Resound Resources</b><br>
+In the directory, copy the five files that come with the Resound API distribution:&nbsp; <i>Module.h, ModuleMenuNode.h, ModuleSound.h, ModuleSoundView.h</i> and <i>ModuleProtocol.h.</i>
+
+<p><b>Add Some Code</b><br>
+Launch Edit.app, and create a new file.&nbsp; In this file, add the following:
+
+<tt><pre>
+#import "Module.h"
+
+@interface ZeroModule:Module
+{
+}
+
+- init;
+- zeroSound:sender;
+
+@end
+</pre></tt>
+
+<p>Save this as <i>ZeroModule.h</i> in your Zero folder.&nbsp; Create another file with the following:
+
+<tt><pre>
+#import "ZeroModule.h"
+#import <SoundKit/SoundKit.h>
+#import <AppKit/AppKit.h>
+	
+@implementation ZeroModule
+
+-init
+  {
+  id returnVal=[super init];
+		
+  ModuleMenuNode* zeroNode=[[ModuleMenuNode alloc] 
+    initLeafNode:@"Zero":self:@selector(zeroSound:)];
+		
+  [rootModuleMenuNode addSubmenu: zeroNode];
+						
+  return returnVal;
+  }
+</pre></tt>
+
+
+<p>Before we go on, this requires some explaining.&nbsp; <i>Module</i> is the class from which all modules subclass.&nbsp; It contains the machinery necessary to load your module into Resound.&nbsp; <i>ModuleMenuNode </i>is a special class with which you specify the submenu to build in Resound's Modules menu.&nbsp; This node is a tree-node, and every menu entry and submenu you add is added as a leaf in the tree.
+
+<p>The root of this tree is <i>rootModuleMenuNode,</i> which you've inherited from Module.&nbsp; This node represents the Modules menu itself.&nbsp; If you want, say, three items in the Modules menu, add three ModuleMenuNodes as submenus to rootModuleMenuNode. As it is, we're only doing one node: <i>zeroNode.</i>
+
+<p>zeroNode is a leaf node in the tree, so we initialize it as such, declaring its name, its receiver (this instance of <i>ZeroModule</i>), and the message sent when choosing the menu item (<b>zeroSound:</b>).
+
+<p>Now add to this file:
+
+<tt><pre>
+- zeroSound:sender
+  {
+  Sound* current=	  [moduleController currentSound];
+  SoundView* cview=	[moduleController currentSoundView];
+		
+  int dataFormat=		[current dataFormat];
+  int channelCount=	[current channelCount];
+  int sampleCount=	[current sampleCount];
+  char* data;
+  int x;
+	
+  int firstSample,sampleLength;
+		
+  [cview getSelection: &firstSample size: &sampleLength];
+		
+  if (current==nil||!sampleLength)		// no sound
+    {
+    NSRunAlertPanel(@"No Sound", 
+       @"There is no sound with which to perform this operation." , 
+       @"Okay",nil,nil);
+    return nil;
+    }
+</pre></tt>
+
+<p><i>moduleController</i>, which we've inherited from Module, provides us access to Resound's facilities.&nbsp; Above we've grabbed the current sound and soundview as displayed by Resound, and have begun querying the sound and soundview.&nbsp; If there isn't a selection or the sound is nil, we pop up a message telling the user that there's no sound, and exit.
+
+<p>Note that <b>getSelection:</b> does not always return proper values in NeXT's sound view (a bug).&nbsp; Resound's customized sound view does not fix this entirely, but <i>does</i> at least guarantee that the selection will be between 0 and the maximum number of samples in the sound (NeXT's is often way out of range).&nbsp; Continuing:
+
+<tt><pre>
+  [moduleController stop];
+  [current compactSamples];
+  [[moduleController currentSoundView] checkForCurrentDataOnPasteboard]; 
+
+  data=(char*) [current data];
+
+  SNDSwapSoundToHost
+    ((void*)data, (void*)data, sampleCount, channelCount, dataFormat);
+			
+  // samples can be stereo or mono.  We need to deal with this fact.
+  firstSample*=channelCount;
+  sampleLength*=channelCount;
+</pre></tt>
+
+<p>We stop any sound currently playing (just in case), let Resound make sure that the sound we're modifying doesn't have pasteboard information (and deal with it appropriately), compact the samples in the sound so we have a clean array on which to operate, and swap the data in the sound to the format that our type of computer can read (Intel machines' data is backwards from most other machines).&nbsp; Note that we set the data pointer only <i>after </i>compactSamples has been performed, since compactSamples changes the pointer.&nbsp; lastly, we set the first sample and the sample length to take into consideration the fact that the channel count could be either 1 (mono) or 2 (stereo).  Onward:
+
+<tt><pre>
+		// samples can have many different data formats.  We also need to deal
+		// with this fact!
+		switch(dataFormat)
+			{
+			case SND_FORMAT_MULAW_8:
+                        	{
+				unsigned char mulawzero=SNDMulaw(0);  // it's probably 127
+                        	char* d=(char*) data;
+                                for (x=firstSample;x<firstSample+sampleLength;x++) d[x]=mulawzero;
+                        	break;
+                        	}					
+			case SND_FORMAT_LINEAR_8:
+				{
+				char* d=(char*) data;
+				for (x=firstSample;x<firstSample+sampleLength;x++) d[x]=0;
+				break;
+				}
+			case SND_FORMAT_LINEAR_16:
+				{
+				signed short* d=(signed short*)data;
+				for (x=firstSample;x<firstSample+sampleLength;x++) d[x]=0;
+				break;
+				}
+			case SND_FORMAT_FLOAT: 			
+				{
+				float* d=(float*)data;
+				for (x=firstSample;x<firstSample+sampleLength;x++) d[x]=0;
+				break;
+				}
+			case SND_FORMAT_DOUBLE: 			
+				{
+				double* d=(double*)data;
+				for (x=firstSample;x<firstSample+sampleLength;x++) d[x]=0;
+				break;
+				}
+			default:
+				NSRunAlertPanel(@"Invalid Format", 
+					@"This operation cannot be performed with "
+					@"this particular sound format." , 
+					@"Okay",NULL,NULL);
+				break;
+			}
+
+</pre></tt>
+
+<p>This code zeroes out the array, but it changes the particulars of the array type, depending on the sound format (for SND_FORMAT_LINEAR_16, for example, it treats the array as an array of signed shorts).&nbsp; Any other unusual formats cause it to pop up an alert that says it can't perform the operation.&nbsp; Note that SND_FORMAT_MULAW_8 requires the SNDMuLaw() and SNDIMuLaw() functions.&nbsdp; Continuing:
+
+</tt><pre>
+		SNDSwapHostToSound
+			((void*)data, (void*)data, sampleCount, channelCount, dataFormat);
+		[moduleController soundChanged];
+		return self;
+		}	
+
+	@end
+</pre></tt>
+
+<p>We finish by swapping the sound back to its &#34;proper&#34; format, and finally informing Resound that we've made modifications to the sound itself.
+
+<p><b>Compiling the Code</b><br>
+Return to ProjectBuilder.app.&nbsp; Add <i>ZeroModule.m</i> as a class in your Zero project if it's not been included yet.  Finally, add the five files files <i>Module.h, ModuleMenuNode.h, ModuleSound.h, ModuleSoundView.h</i> and <i>ModuleProtocol.h</i> as headers in the project by double-clicking &#34;Headers&#34;.  Then build the project.
+
+<p>A bundle called <i>Zero.bundle</i> should appear in the Zero project directory. Move this bundle into the directory <i>/Local/Library/Resound</i> or into the the Resound subdirectory of your home library directory (<i>~/Library/Resound</i>) so Resound will find it.&nbsp; Rename the bundle <i>Zero.rmod.</i>&nbsp; &#34;rmod&#34; is the standard Resound module extension.
+
+<p><b>Try It Out</b><br>
+Launch <i>Resound.app.</i>&nbsp; Record a sound and convert it to 16-bit linear.&nbsp; Select a section of the sound.&nbsp; Choose <i>Modules:Zero</i> and have fun!
+
+<p><b>Cleaning Up</b><br>
+Before you distribute your object to others, you should strip it of extraneous symbols (which should make the bundle considerably smaller).&nbsp; To do this, open the file <i>Makefile.postamble</i> in your Zero project directory.<br>
+Change the line
+
+<p><img src="../Images/sp.gif" width=18 height=1><tt>#STRIP_FLAGS = -S</tt>
+
+<p>To
+
+<p><img src="../Images/sp.gif" width=18 height=1><tt>STRIP_FLAGS = -x -u</tt>
+
+<p>This will strip proper extraneous symbols from the bundle.
+
+<p><br>
+
+</body>
+</html>

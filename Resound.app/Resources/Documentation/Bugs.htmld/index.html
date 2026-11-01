@@ -1,0 +1,71 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<!-- Created with LatinByrd III -->
+<!-- File: /private/tmp/O_Help/Help/Bugs.rtfd -->
+<!-- Date: Thu Apr 30 20:18:53 1998 -->
+<head>
+<title>Bugs</title>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" link="#0000FF" alink="#FF00FF" vlink="#FF0000">
+
+<basefont size=3>
+
+<p>
+
+<p><font size=+2><b>Known Bugs and Problems (and Gripes)</b></font>
+
+<hr noshade size=1>
+
+<p>This section is divided into two parts.&nbsp; <i>Resound Bugs</i> are known bugs in my own code.&nbsp; <i>NeXT Bugs</i> are bugs in the NeXT Sound Kit that Resound simply cannot work around.&nbsp; Frankly, I don't know if NeXT will ever get around to fixing them... oh, well.&nbsp; I do not include known bugs with any modules included with Resound--those are dealt with in the documentation for each module.
+
+<p>Resound has been tested on NeXTstation, NeXTstation Color, NeXTstation Turbo Color, Canon Object.Station 31, and Intel Professional GX workstations.
+
+<p><b>Resound Bugs</b>
+
+<p><img src="../Images/CheckMark.gif" width=10 height=11> Resound prints only the visible window contents.
+
+<p><img src="../Images/CheckMark.gif" width=10 height=11> The ticks ruler often has rounding errors.
+
+<p><img src="../Images/CheckMark.gif" width=10 height=11> For module writers:&nbsp; Resound modules may receive the <b>soundDidPlay</b> and <b>soundDidRecord</b> methods more than once for the same sound.
+
+<p><img src="../Images/CheckMark.gif" width=10 height=11> For module writers:&nbsp; Some combination of Resound and the SoundKit corrupts sounds in soundviews that have been written out to a stream using <b>writeToSoundfile:</b>.&nbsp; For the time being, if you're programatically writing the sound, make a copy of it first, and write out the copy.
+
+<p><br><br>
+
+<p><b>Rhapsody Bugs</b>
+
+<p><img src="../Images/CheckMark.gif" width=10 height=11> A whole host of bugs have been introduced with Rhapsody's weak SoundKit.  First and foremost, many sound formats have bugs when playing (including 16-bit, 44.1KHz!). Most mono formats have bugs in playing and in recording.  Several formats (including 8-bit linear) don't display properly in the SoundView.  And a nasty new gotcha: hooking SoundViews to windows often produces exceptions.  See ModuleProtocol.rtf for more information on this bad one.
+
+<p><b>Older Next Bugs</b> (which may or may not be still valid)
+
+<p><img src="../Images/CheckMark.gif" width=10 height=11> The time delay between a sound starting to play and its data finally making it out the speaker is so large that small sounds never even get a chance to update Resound on their status, and so never get any drawing on Resound's sound meter.&nbsp; Likewise, the sound meter (and tracker) often finishes 1-2 seconds before the sound has finished playing!&nbsp; This affect also occurs for the play mark, since its movement is tied to the meter and trackers.
+
+<p><img src="../Images/sp.gif" width=18 height=1>Curiously, NeXT's own sound meter doesn't demonstrate anything like this, which suggests to me that NeXT is using some internal tracking mechanism that is bypassing the standard methods.&nbsp; If anyone can set me straight here, I'd really appreciate it.
+
+<p><img src="../Images/CheckMark.gif" width=10 height=11> Not all conversions are supported (namely, Emphasized, Emphasized/Compressed, 24-bit, and 32-bit formats).
+
+<p><img src="../Images/CheckMark.gif" width=10 height=11> Setting an unavailable combination of recording data formats, recording channels, and recording sampling rates in the Record Format Panel may confuse NeXT's sound system and make Resound unable to record.
+
+<p><img src="../Images/CheckMark.gif" width=10 height=11> Cutting and pasting a compressed or otherwise undisplayable sound may bomb the program.
+
+<p><img src="../Images/CheckMark.gif" width=10 height=11> If a sound is paused while playing, then after unpausing it, NeXT's sound system forgets how many samples had been played up to that point.&nbsp; As a result, the tracker and play mark are reset to 0 (try it and you'll see).
+
+<p><img src="../Images/CheckMark.gif" width=10 height=11> NeXT's Sound Views do not display oscilliscopic information properly, and often spit out PostScript errors when trying to do so.&nbsp; This bug was reported in the 0.8 version of NeXTSTEP and has <i>still</i> not been fixed.
+
+<p><img src="../Images/CheckMark.gif" width=10 height=11> NeXT's Sound Views allow you to select more than the actual sound, off to the right edge of the sound, when the window is larger than the sound data at its current scaling (zoom). Resound bypasses this for the most part, so the only effect is that you may have occasional odd results when shift-clicking in sounds.
+
+<p><img src="../Images/CheckMark.gif" width=10 height=11> NeXT's Sound Views restrict selection in a sound to the resolution of the zooming scale, which makes the selection change as scaling is changed.&nbsp; As a result, you may find that after zooming in or out, your selection has changed slightly.
+
+<p><img src="../Images/CheckMark.gif" width=10 height=11> The first sound recording on an Intel machine may result in zero sound bytes.
+
+<p><img src="../Images/CheckMark.gif" width=10 height=11> Because of what appear to be bugs in NeXT's sound conversion function, some conversions will bomb Resound on Intel systems.
+
+<p><img src="../Images/CheckMark.gif" width=10 height=11> Sometimes Sound Views do not display properly or at all on Intel machines.
+
+
+
+<p>
+
+</body>
+</html>

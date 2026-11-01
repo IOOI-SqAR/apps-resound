@@ -1,0 +1,6 @@
+{
+    RootNode = /Local/Users/jgenest/Projets/Resound/Resound3DR2/Source/Modules/WaveBuilder; 
+    Toolbar = Yes; 
+    ViewName = Icon; 
+    WindowFrame = "{x = 52; y = 519; width = 468; height = 437}"; 
+}

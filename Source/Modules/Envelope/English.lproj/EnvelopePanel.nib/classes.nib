@@ -1,0 +1,26 @@
+{
+    IBClasses = (
+        {
+            ACTIONS = {applyEnvelope = id; cancel = id; showEnvelopePanel = id; }; 
+            CLASS = EnvelopeModule; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                applyButton = id; 
+                applyToAllButton = id; 
+                applyToLeftButton = id; 
+                applyToRightButton = id; 
+                envelopePanel = id; 
+                inOutMatrix = id; 
+            }; 
+            SUPERCLASS = Module; 
+        }, 
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {
+            CLASS = Module; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {TheModuleMenuNode = id; }; 
+            SUPERCLASS = Object; 
+        }
+    ); 
+    IBVersion = 1; 
+}

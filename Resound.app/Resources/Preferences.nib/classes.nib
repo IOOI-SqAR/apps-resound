@@ -1,0 +1,32 @@
+{
+    IBClasses = (
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {
+            ACTIONS = {preferencesOkayed = id; startPreferencesPanel = id; }; 
+            CLASS = PreferencesManager; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                amplitudeButton = id; 
+                attributesMatrix = id; 
+                backupButton = id; 
+                convertOnOpenButton = id; 
+                displayAmplitudeButton = id; 
+                displayTicksButton = id; 
+                displayZeroLineButton = id; 
+                majorTicksField = id; 
+                minMaxDisplayButton = id; 
+                minorTicksField = id; 
+                minorTicksFormatButton = id; 
+                oscilliscopicDisplayButton = id; 
+                playOnOpenButton = id; 
+                preferencesPanel = id; 
+                scrollToReflectSoundButton = id; 
+                zoomMatrix = id; 
+                zoomedInButton = id; 
+                zoomedOutButton = id; 
+            }; 
+            SUPERCLASS = NSObject; 
+        }
+    ); 
+    IBVersion = 1; 
+}

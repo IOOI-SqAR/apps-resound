@@ -1,0 +1,6 @@
+{
+    RootNode = /Local/Users/jgenest/Projets/Resound/Resound3DR2/Source/Modules/EchoChamber; 
+    Toolbar = Yes; 
+    ViewName = Icon; 
+    WindowFrame = "{x = 424; y = 285; width = 555; height = 558}"; 
+}

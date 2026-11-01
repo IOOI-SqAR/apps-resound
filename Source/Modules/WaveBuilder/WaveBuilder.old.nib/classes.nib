@@ -1,0 +1,54 @@
+{
+    IBClasses = (
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {
+            CLASS = Module; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {moduleController = id; rootModuleMenuNode = id; }; 
+            SUPERCLASS = NSObject; 
+        }, 
+        {
+            ACTIONS = {
+                A = id; 
+                As = id; 
+                B = id; 
+                C = id; 
+                Cs = id; 
+                D = id; 
+                Ds = id; 
+                E = id; 
+                F = id; 
+                Fs = id; 
+                G = id; 
+                Gs = id; 
+                clear = id; 
+                cosA = id; 
+                doNoise = id; 
+                doPulse = id; 
+                doSawtooth = id; 
+                doSquare = id; 
+                doTriangle = id; 
+                generateOthers = id; 
+                generateSin = id; 
+            }; 
+            CLASS = WaveBuilderModule; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                othersAmplitude = id; 
+                othersLength = id; 
+                othersPanel = id; 
+                othersSize = id; 
+                percentDoneOthers = id; 
+                percentDoneSin = id; 
+                sinAmplitudes = id; 
+                sinHarmonics = id; 
+                sinLength = id; 
+                sinPanel = id; 
+                sinPhases = id; 
+                sinPopUpButton = id; 
+            }; 
+            SUPERCLASS = Module; 
+        }
+    ); 
+    IBVersion = 1; 
+}

@@ -1,0 +1,19 @@
+#!/bin/sh
+
+echo "Cleaning Main Directory"
+make clean
+
+echo
+echo "Removing Resound"
+rm -r Resound.app
+
+echo "Cleaning Modules"
+for i in `ls Modules`
+do
+        echo Modules/${i}/${i}.bundle/$i
+        rm -r ModuleBinaries/${i}.rmod
+        cd Modules/$i
+        make clean
+        cd ../..
+done
+

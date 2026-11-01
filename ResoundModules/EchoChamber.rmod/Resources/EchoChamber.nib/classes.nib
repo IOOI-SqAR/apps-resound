@@ -1,0 +1,21 @@
+{
+    IBClasses = (
+        {
+            ACTIONS = {begin = id; performEcho = id; }; 
+            CLASS = EchoChamber; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                EchoChamberPanel = id; 
+                delay = id; 
+                dropoff = id; 
+                firstDelay = id; 
+                initial = id; 
+                ratio = id; 
+            }; 
+            SUPERCLASS = Module; 
+        }, 
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {CLASS = Module; LANGUAGE = ObjC; SUPERCLASS = Object; }
+    ); 
+    IBVersion = 1; 
+}

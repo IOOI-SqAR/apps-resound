@@ -1,0 +1,10 @@
+#! /bin/sh
+
+echo
+echo "Building Resound"
+make
+
+./BuildModules $1
+
+echo
+echo "Done!"

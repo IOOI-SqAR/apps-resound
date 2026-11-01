@@ -1,0 +1,24 @@
+{
+    IBClasses = (
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {
+            ACTIONS = {gateIt = id; }; 
+            CLASS = GateModule; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                gatePanel = id; 
+                secondsCutField = id; 
+                secondsWaitField = id; 
+                thresholdField = id; 
+            }; 
+            SUPERCLASS = Module; 
+        }, 
+        {
+            CLASS = Module; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {TheModuleController = id; TheModuleMenuNode = id; }; 
+            SUPERCLASS = Object; 
+        }
+    ); 
+    IBVersion = 1; 
+}

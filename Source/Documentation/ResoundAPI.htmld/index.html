@@ -1,0 +1,43 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<!-- Created with LatinByrd III -->
+<!-- File: /private/tmp/O_Help/Help/ResoundAPI.rtfd -->
+<!-- Date: Thu Apr 30 20:19:03 1998 -->
+<head>
+<title>ResoundAPI</title>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" link="#0000FF" alink="#FF00FF" vlink="#FF0000">
+
+<basefont size=3>
+
+<p>
+
+<p><font size=+2><b>The Resound API</b></font>
+
+<hr noshade size=1>
+
+<p>Resound's API gives you tools necessary to extend Resound's capabilities to fit your own needs by writing dynamically loadable modules, each of which should subclass from Module.&nbsp; These modules communicate with Resound through Resound's Module Controller, using the ModuleProtocol protocol.&nbsp; The API consists of four files:
+
+<p><img src="../Images/CheckMark.gif" width=10 height=11> <b>Module.h</b> holds Module, the parent class of all modules.&nbsp; It includes pointers to the ModuleController and each Module's ModuleMenuNode, wherein you can define the menu options in Resound that will call forth the module.&nbsp; For more information, press here:&nbsp; <a href="../Module.h.htmld/index.html"><img src="../Images/link.gif" width=10 height=10 vspace=3 border=0></a>
+
+<p><img src="../Images/CheckMark.gif" width=10 height=11> <b>ModuleProtocol.h</b> holds the ModuleProtocol, the collection of all the methods Resound's ModuleController responds to.&nbsp; For more information, press here:&nbsp; <a href="../ModuleProtocol.h.htmld/index.html"><img src="../Images/link.gif" width=10 height=10 vspace=3 border=0></a>
+
+<p><img src="../Images/CheckMark.gif" width=10 height=11> <b>ModuleMenuNode.h</b> holds the ModuleMenuNode class, from which you instantiate instances to build a tree that tells Resound how to build your menu.&nbsp; For more information, press here:&nbsp; <a href="../ModuleMenuNode.h.htmld/index.html"><img src="../Images/link.gif" width=10 height=10 vspace=3 border=0></a>
+
+<p><img src="../Images/CheckMark.gif" width=10 height=11> <b>ModuleSound.h</b> and <b>ModuleSoundView.h</b> are categories which hold additional Sound and SoundView methods you might find useful:&nbsp; <a href="../ModuleSound.h.htmld/index.html"><img src="../Images/link.gif" width=10 height=10 vspace=3 border=0></a>
+
+<p><br><br>
+
+<p><b>Creating a Resound Module</b>
+
+<p>Building a Resound module is fairly easy.&nbsp; Create a bundle project, assign the file's owner to be your subclass of Module and create any nib files you need.&nbsp; Then generate a ModuleMenuNode tree in the init: method of this subclass, as directed in ModuleMenuNode.h.&nbsp; Create the methods called by the nodes in ModuleMenuNode, using the ModuleProtocol to get current sound information.&nbsp; Then compile the bundle and rename it to have a <b>.rmod</b> extension.&nbsp; Lastly, move the bundle to /Local/Library/Resound or ~/Library/Resound, and run Resound. Remember to strip the module when done debugging (use -x -u).<br>
+Your menu options should appear in the <b>Modules <a href="../ModulesMenu.htmld/index.html"><img src="../Images/link.gif" width=10 height=10 vspace=3 border=0></a></b> menu.<br>
+For a tutorial on creating a module, press here:&nbsp; <a href="../WalkThrough.htmld/index.html"><img src="../Images/link.gif" width=10 height=10 vspace=3 border=0></a>&nbsp;&nbsp; Resound comes with source code for a more advanced module to show you how to create multiple menus, nib files, etc., with your module.
+
+
+
+<p>
+
+</body>
+</html>

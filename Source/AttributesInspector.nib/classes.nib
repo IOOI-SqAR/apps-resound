@@ -1,0 +1,61 @@
+{
+    IBClasses = (
+        {
+            ACTIONS = {
+                changeDisplayModeToMinMax = id; 
+                changeDisplayModeToOscilliscopic = id; 
+                getInspector = id; 
+                update = id; 
+            }; 
+            CLASS = AttributesInspector; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                channels = id; 
+                display_matrix = id; 
+                fileController = id; 
+                format = id; 
+                fragmented = id; 
+                infoWindow = id; 
+                inspector = id; 
+                inspectorController = id; 
+                min_max_button = id; 
+                oscilliscopic_button = id; 
+                playOrDisplay = id; 
+                rate = id; 
+                samples = id; 
+                seconds = id; 
+            }; 
+            SUPERCLASS = NSObject; 
+        }, 
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {
+            ACTIONS = {
+                CompactSound = id; 
+                GetInspector = id; 
+                changeDisplayModeToMinMax = id; 
+                changeDisplayModeToOscilliscopic = id; 
+            }; 
+            CLASS = InfoManager; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                Channels = id; 
+                Format = id; 
+                Fragmented = id; 
+                InfoWindow = id; 
+                PlayOrDisplay = id; 
+                Rate = id; 
+                Samples = id; 
+                Seconds = id; 
+                TheEditController = id; 
+                TheFileController = id; 
+                TheInspector = id; 
+                TheInspectorController = id; 
+                display_matrix = id; 
+                min_max_button = id; 
+                oscilliscopic_button = id; 
+            }; 
+            SUPERCLASS = Object; 
+        }
+    ); 
+    IBVersion = 1; 
+}

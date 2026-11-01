@@ -1,0 +1,10 @@
+#! /bin/sh
+
+echo
+echo "Building Resound"
+gnumake TARGET_ARCHS="i386 ppc"
+
+./BuildFatModules $1
+
+echo
+echo "Done!"

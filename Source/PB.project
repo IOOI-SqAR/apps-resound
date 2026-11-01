@@ -1,0 +1,165 @@
+{
+    APPCLASS = NSApplication; 
+    FILESTABLE = {
+        CLASSES = (
+            AttributesInspector.m, 
+            ConsoleManager.m, 
+            EditController.m, 
+            FileController.m, 
+            InfoStringInspector.m, 
+            InspectorManager.m, 
+            MarksInspector.m, 
+            MiscSoundTracker.m, 
+            MiscSoundView.m, 
+            MiscSoundViewRuler.m, 
+            MiscVolumeMeter.m, 
+            Module.m, 
+            ModuleController.m, 
+            ModuleMenuNode.m, 
+            ModuleSound.m, 
+            ModuleSoundView.m, 
+            PreferencesManager.m, 
+            ResoundMiscSoundView.m, 
+            ResoundMiscVolumeMeter.m, 
+            ResoundScrollView.m, 
+            SelectionInspector.m, 
+            SoundDocumentTable.m, 
+            SoundManager.m, 
+            VolumeController.m, 
+            ZoomInspector.m, 
+            Extra.m
+        ); 
+        C_FILES = (); 
+        FRAMEWORKS = (AppKit.framework, Foundation.framework, SoundKit.framework); 
+        FRAMEWORKSEARCH = (/System/Library/PrivateFrameworks); 
+        H_FILES = (
+            AttributesInspector.h, 
+            ConsoleManager.h, 
+            EditController.h, 
+            fft.h, 
+            FileController.h, 
+            InfoStringInspector.h, 
+            InspectorManager.h, 
+            MarksInspector.h, 
+            MiscSoundTracker.h, 
+            MiscSoundView.h, 
+            MiscSoundViewRuler.h, 
+            MiscVolumeMeter.h, 
+            Module.h, 
+            ModuleController.h, 
+            ModuleMenuNode.h, 
+            ModuleProtocol.h, 
+            ModuleSound.h, 
+            ModuleSoundView.h, 
+            PreferencesManager.h, 
+            ResoundMiscSoundView.h, 
+            ResoundMiscVolumeMeter.h, 
+            ResoundScrollView.h, 
+            SelectionInspector.h, 
+            SoundDocumentTable.h, 
+            SoundManager.h, 
+            VolumeController.h, 
+            ZoomInspector.h, 
+            Extra.h
+        ); 
+        IMAGES = (
+            down.tiff, 
+            downin.tiff, 
+            Miniaturize.tiff, 
+            NotPlaying.tiff, 
+            NotRecording.tiff, 
+            NotStopped.tiff, 
+            OneDown.tiff, 
+            OneUp.tiff, 
+            PauseOff.tiff, 
+            PauseOn.tiff, 
+            Playing.tiff, 
+            RecordFormat.tiff, 
+            Recording.tiff, 
+            SoundViewCursor.tiff, 
+            Stopped.tiff, 
+            TwoDown.tiff, 
+            TwoUp.tiff, 
+            up.tiff, 
+            upin.tiff, 
+            rmod.tiff, 
+            au.tiff, 
+            wav.tiff, 
+            aiff.tiff, 
+            ResoundInfo.tiff, 
+            Resound.tiff, 
+            backupsnd.tiff, 
+            iff.tiff, 
+            mp2.tiff, 
+            other.tiff, 
+            voc.tiff
+        ); 
+        INTERFACES = (
+            AttributesInspector.nib, 
+            Console.nib, 
+            Edit.nib, 
+            File.nib, 
+            InfoStringInspector.nib, 
+            Inspector.nib, 
+            MarksInspector.nib, 
+            Module.nib, 
+            Preferences.nib, 
+            Resound.nib, 
+            SelectionInspector.nib, 
+            Volume.nib, 
+            ZoomInspector.nib
+        ); 
+        LIBRARYSEARCH = (); 
+        M_FILES = (); 
+        OTHER_LIBS = (); 
+        OTHER_LINKED = (fft.c, Resound_main.m); 
+        OTHER_RESOURCES = (Documentation); 
+        OTHER_SOURCES = (Makefile, Makefile.postamble, Makefile.preamble); 
+        PSWM_FILES = (); 
+        PSW_FILES = (); 
+        SOUNDS = (); 
+        SUBPROJECTS = (FileType.subproj); 
+    }; 
+    GENERATEMAIN = YES; 
+    LANGUAGE = English; 
+    LOCALIZABLE_FILES = {}; 
+    MAKEFILEDIR = "$(MAKEFILEPATH)/pb_makefiles"; 
+    NEXTSTEP_APPICON = Resound.tiff; 
+    NEXTSTEP_BUILDTOOL = /bin/gnumake; 
+    NEXTSTEP_DOCUMENTEXTENSIONS = (
+        {Extension = rmod; Image = rmod.tiff; }, 
+        {Extension = au; Image = au.tiff; }, 
+        {Extension = wav; Image = wav.tiff; }, 
+        {Extension = aiff; Image = aiff.tiff; }, 
+        {Extension = "~snd"; Image = backupsnd.tiff; }, 
+        {Extension = iff; Image = iff.tiff; }, 
+        {Extension = voc; Image = voc.tiff; }, 
+        {Extension = aif; Image = aiff.tiff; }, 
+        {Extension = mp; Image = mp2.tiff; }, 
+        {Extension = mp1; Image = mp2.tiff; }, 
+        {Extension = snd; Image = ""; }, 
+        {Extension = mp2; Image = mp2.tiff; }, 
+        {Extension = WAV; Image = wav.tiff; }
+    ); 
+    NEXTSTEP_INSTALLDIR = "$(HOME)/Apps"; 
+    NEXTSTEP_JAVA_COMPILER = /usr/bin/javac; 
+    NEXTSTEP_MAINNIB = Resound; 
+    NEXTSTEP_OBJCPLUS_COMPILER = /usr/bin/cc; 
+    PDO_UNIX_COMPILEROPTIONS = ""; 
+    PDO_UNIX_INSTALLDIR = "$(HOME)/Apps"; 
+    PDO_UNIX_JAVA_COMPILER = "$(NEXTDEV_BIN)/javac"; 
+    PDO_UNIX_LINKEROPTIONS = ""; 
+    PDO_UNIX_MAINNIB = Resound; 
+    PDO_UNIX_OBJCPLUS_COMPILER = "$(NEXTDEV_BIN)/gcc"; 
+    PROJECTNAME = Resound; 
+    PROJECTTYPE = Application; 
+    PROJECTVERSION = 2.8; 
+    SYSTEMEXTENSIONS = (snd); 
+    WINDOWS_COMPILEROPTIONS = ""; 
+    WINDOWS_DOCUMENTEXTENSIONS = (); 
+    WINDOWS_INSTALLDIR = "$(HOME)/Apps"; 
+    WINDOWS_JAVA_COMPILER = "$(JDKBINDIR)/javac.exe"; 
+    WINDOWS_LINKEROPTIONS = ""; 
+    WINDOWS_MAINNIB = Resound; 
+    WINDOWS_OBJCPLUS_COMPILER = "$(DEVDIR)/gcc"; 
+}

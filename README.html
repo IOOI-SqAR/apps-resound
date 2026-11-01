@@ -1,0 +1,84 @@
+<html>
+<head>
+<title>
+About the Resound 3.0 Distribution
+</title>
+</head>
+<h1>About the Resound 3.0 Distribution</h1>
+<p>
+Resound 3.0 is a port of the venerable sound editor to Rhapsody.  3.0
+introduces a massive rewrite of Resound to bring it up-to-spec with Rhapsody.
+Resound 3.0 can also now read a large range of file formats, including AIFF, AU, SND, IFF, VOC, WAV, and various MPEG formats.  
+However, it can currently only write to SND.
+3.0 fixes several bugs, but Rhapsody manages to introduce even more bugs,
+particularly in recording, displaying, and playing sounds (see below).
+Resound tries go get around some of these, but others it just can't deal
+with.  Sorry.
+
+<p>Resound is compiled fat for PPC and Intel versions of Rhapsody.  Resound 3.0 also comes, for the first time, with <b>full source code</b>
+and a rather liberal license.  
+
+<p>Resound's home page is at <a href="http://www.cs.umd.edu/users/seanl/Resound/"> 
+http://www.cs.umd.edu/users/seanl/Resound/</a>, and its author (me, Sean Luke) has a web page at <a href="http://www.cs.umd.edu/users/seanl/">http://www.cs.umd.edu/users/seanl/</a>.
+
+<h2>Installing Resound 3.0</h2>
+<ul>
+<li><b>1.  </b> Move Resound.app to "/Local/Applications" or to "~/Applications" (create the directory if needed)
+<li><b>2.  </b> Make a directory, "/Local/Library/Resound" or "~/Library/Resound" 
+<li><b>3.  </b> Move all the files in ResoundModules to the directory in #2.
+</ul>
+<p>The "~" represents your home (user) account.
+
+<h2>"It won't record!"</h2>
+<p>Yes it will; you just have to set it up right.  Rhapsody's sound recording facility is...um...below par.  Try changing
+your number of channels to 2, your format to 16-bit linear, and your sound
+rate to 22.05 KHz (NOT 44.1 KHz!).  You'll then stand a good chance of
+being able to record.
+
+<h2>"Some files in /NextLibrary/Sounds don't play the right sound!"</h2>
+<p>On DR1, Apple didn't copy the sounds properly; as a result a number are
+broken.  But they're easily copied from any NeXTSTEP box and work great
+thereafter.
+
+<h2>"Is there an OPENSTEP 4.x Mach version?"</h2>
+<p>No.  We don't have access to 4.x developer, so we can't set up the
+nib files and compile the code.  But I imagine it wouldn't be too difficult
+if someone's interested.  Otherwise, just use Resound 2.5.
+
+<h2>"But the SoundKit is going away!"</h2>
+<p>Oh, well.  It was a nice fling while it lasted.
+
+<h2>About the License Agreements For Source Code</h2>
+<p>
+Resound uses various pieces of source code, which have different license
+agreement issues you'll need to be aware of if you want to redistribute
+Resound for your own needs:
+<ul>
+<li><b>Resound Source</b>.  The original Resound source code, found in
+the main directory and in various Modules, comes with a license that allows
+it to be reused and redistributed without any ties whatsoever.
+<li><b>MiscKit Source</b>.  Some parts of Resound are associated with
+the MiscKit.  This code comes with a different license that also allows
+it to be reused and redistributed without any ties whatsoever.
+<li><b>FileType.subproj Source</b>.  Resound comes with a new foreign file reader,
+which can read AU, AIFF, SND (of course), WAV, VOC, IFF, and MPEG2 sound
+files.  This reader code comes with a license by Jerome Genest which
+allows it to be freely reused and distributed, but only for non-profit
+purposes, unless Jerome gives you permission.  Contact Jerome at
+jgenest@gel.ulaval.ca.  If you want to use Resound for some other
+purpose, you'll need to remove his subproject and tweak FileController.m
+a little (mostly modifying initFromForeignSoundFile:).
+<li><b>Other Code</b>.  Resound also uses code from various free sources
+(for example, Numerical Recipies in C).  These shouldn't present you with
+any license issues.  Also, Andrew Abernathy has given permission to reuse
+the Envelope Module source freely.
+</ul>
+
+<h2>Support</h2>
+Resound 3.0 comes with <b>no guarantees for support of any kind</b>.  If I have
+time I may fix a bug here or there, but very soon I'll not even have access
+to the Rhapsody DR1, so you may be on your own.  Check the Resound web page
+before submitting bug reports.
+<body>
+</body>
+</html>

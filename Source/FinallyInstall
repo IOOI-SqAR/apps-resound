@@ -1,0 +1,48 @@
+#!/bin/sh
+
+echo "Making Sure " $1 "Exists"
+mkdir ${1}
+
+
+echo
+echo "Coyping API to" $1
+mkdir ${1}/API
+cp ModuleMenuNode.h ${1}/API
+cp ModuleProtocol.h ${1}/API
+cp Module.h ${1}/API
+cp ModuleSound.h ${1}/API
+cp ModuleSoundView.h ${1}/API
+
+
+echo
+echo "Installing Resound in" $1
+# I believe this is the most stripping we can do
+# that still allows modules to have full access
+# to global symbols.
+strip -x Resound.app/Resound
+cp -r Resound.app $1
+
+
+echo
+echo "Moving Modules to " $1
+mkdir ${1}/ResoundModules
+for i in `ls ${1}/ResoundModules`
+do
+	rm -r ${1}/ResoundModules/$i
+done
+mkdir ${1}/ResoundModules
+for i in `ls ModuleBinaries`
+do
+        echo ${i}
+        strip -x -u ModuleBinaries/${i}/*
+        cp -r ModuleBinaries/${i} ${1}/ResoundModules/${i}
+done
+
+
+echo
+echo "Moving README.html to " $1
+cp README.html ${1}/README.html
+
+echo
+echo "You'll need to manually clean this directory, then copy it"
+echo "into ${1}/Source yourself.  After that, ${1} will be all set up."

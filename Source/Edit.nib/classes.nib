@@ -1,0 +1,27 @@
+{
+    IBClasses = (
+        {
+            ACTIONS = {
+                compactSound = id; 
+                convert = id; 
+                okayConvert = id; 
+                turnOffMenu = id; 
+                turnOnMenu = id; 
+            }; 
+            CLASS = EditController; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                channelMatrix = id; 
+                compactButton = id; 
+                convertPanel = id; 
+                fileController = id; 
+                formatMenu = id; 
+                samplingRateField = id; 
+                samplingRateMatrix = id; 
+            }; 
+            SUPERCLASS = NSObject; 
+        }, 
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }
+    ); 
+    IBVersion = 1; 
+}

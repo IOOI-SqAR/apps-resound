@@ -1,0 +1,17 @@
+#! /bin/sh
+
+mkdir ModuleBinaries
+rm -rf ModuleBinaries/*
+
+echo
+echo "Building Modules..."
+for i in `ls Modules`
+do
+	echo
+        echo Modules/${i}/${i}.bundle/$i
+        cd Modules/$i
+        gnumake TARGET_ARCHS="i386 ppc"
+        cd ../..
+        mv Modules/${i}/${i}.rmod ModuleBinaries/${i}.rmod
+done
+

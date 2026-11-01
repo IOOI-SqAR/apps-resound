@@ -1,0 +1,36 @@
+{
+    IBClasses = (
+        {
+            ACTIONS = {
+                Apply = id; 
+                ApplyEcho = id; 
+                Difference = id; 
+                Double = id; 
+                Echo = id; 
+                Halve = id; 
+                LoadEchoFilterPanel = id; 
+                LoadFilterPanel = id; 
+                MultiEcho = id; 
+                Normal = id; 
+                Sum = id; 
+                Zero = id; 
+            }; 
+            CLASS = FilterModule; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                Amplitude = id; 
+                EchoFilterPanel = id; 
+                EchoPercentDone = id; 
+                FilterPanel = id; 
+                PercentDone = id; 
+                Position = id; 
+                Sliders = id; 
+                SumField = id; 
+                recursive = id; 
+            }; 
+            SUPERCLASS = Object; 
+        }, 
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }
+    ); 
+    IBVersion = 1; 
+}

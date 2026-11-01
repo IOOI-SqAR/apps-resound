@@ -1,0 +1,6 @@
+{
+    RootNode = "~/Projets/Resound3.0DR2-PI-bs/Source/Modules/Channel"; 
+    Toolbar = Yes; 
+    ViewName = Browser; 
+    WindowFrame = "{{89, 203}, {450, 485}}"; 
+}

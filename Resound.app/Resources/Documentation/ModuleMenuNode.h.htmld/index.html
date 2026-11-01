@@ -1,0 +1,269 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<!-- Created with LatinByrd III -->
+<!-- File: /private/tmp/O_api/api/ModuleMenuNode.rtfd -->
+<!-- Date: Thu Apr 30 22:56:43 1998 -->
+<head>
+<title>ModuleMenuNode</title>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" link="#0000FF" alink="#FF00FF" vlink="#FF0000">
+
+<basefont size=3>
+
+<p>Release 3.0, Copyright &copy;1998 by Sean Luke.&nbsp; All Rights Reserved.
+
+<p><br><br>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+4><b>ModuleMenuNode</b></font>
+
+<p><br><br><br><br>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1><b>Subclass Of:</b> NSObject</font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1><b>Declared In:</b> ModuleMenuNode.h</font>
+
+<p><br><br><br>
+
+<p><img src="../Images/sp.gif" width=68 height=1><font size=+2><b>Class Description</b></font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1>This object stores menu information to be passed to Resound from modules.&nbsp; Future versions will eliminate this node (I hope), when IB is able to generate menus without an application (or I learn to).</font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1>The Module Menu Node is a tree node.&nbsp; The root (top) node of the tree should be set with a blank name.&nbsp; This node contains all the menu items to be added directly to Resound's <b>Modules</b> menu. Children nodes have names, and the menu items <i>they</i> contain are for custom submenus off of the Modules Menu.</font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1>Let's say you want to make two menu options in the Modules menu.&nbsp; One is just a standard menu option, called &#34;Tweak&#34;.&nbsp; The other displays a submenu, called &#34;Twist&#34;, with submenu items &#34;Bend&#34;, &#34;Break&#34;, and &#34;Bust&#34;.&nbsp; You'd generate a tree like this:</font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><b>(Root Node)</b><br>
+<img src="../Images/sp.gif" width=126 height=1><i>Name</i> (<i>not set, defaults to @&#34;&#34;)&nbsp; (empty string)</i><br>
+<img src="../Images/sp.gif" width=126 height=1><i>Receiver (not set) (indicates this node has submenus)</i><br>
+<img src="../Images/sp.gif" width=126 height=1><i>Message</i> (<i>not set)</i><br>
+<img src="../Images/sp.gif" width=126 height=1><i>Length</i> 2 (<i>for Tweak and Twist)</i><br>
+<img src="../Images/sp.gif" width=126 height=1><i>Submenu[0]</i> points to the node Tweak<br>
+<img src="../Images/sp.gif" width=126 height=1><i>Submenu[1]</i> points to the node Twist
+
+<p><img src="../Images/sp.gif" width=105 height=1><b>Tweak</b><br>
+<img src="../Images/sp.gif" width=126 height=1><i>Name</i> &#34;Tweak&#34;<br>
+<img src="../Images/sp.gif" width=126 height=1><i>Receiver</i> object that will receive the Tweak message<br>
+<img src="../Images/sp.gif" width=126 height=1><i>Message</i> selector of message sent to Tweak's receiver<br>
+<img src="../Images/sp.gif" width=126 height=1><i>Length</i> 0<br>
+<img src="../Images/sp.gif" width=126 height=1><i>Submenu... (not set)</i>
+
+<p><img src="../Images/sp.gif" width=105 height=1><b>Twist</b><br>
+<img src="../Images/sp.gif" width=126 height=1><i>Name</i> &#34;Twist&#34;<br>
+<img src="../Images/sp.gif" width=126 height=1><i>Receiver (not set) (indicates this node has submenus)</i><br>
+<img src="../Images/sp.gif" width=126 height=1><i>Message (not set)</i><br>
+<img src="../Images/sp.gif" width=126 height=1><i>Length</i> 3 <i>(for Bend, Break, and Bust)</i><br>
+<img src="../Images/sp.gif" width=126 height=1><i>Submenu[0]</i> points to the node Bend<br>
+<img src="../Images/sp.gif" width=126 height=1><i>Submenu[1]</i> points to the node Break<br>
+<img src="../Images/sp.gif" width=126 height=1><i>Submenu[2]</i> points to the node Bust
+
+<p><img src="../Images/sp.gif" width=105 height=1><b>Bend</b><br>
+<img src="../Images/sp.gif" width=126 height=1><i>Name</i> &#34;Bend&#34;<br>
+<img src="../Images/sp.gif" width=126 height=1><i>Receiver</i> object that will receive the Bend message<br>
+<img src="../Images/sp.gif" width=126 height=1><i>Message</i> selector of message sent to Bend's receiver<br>
+<img src="../Images/sp.gif" width=126 height=1><i>Length</i> 0<br>
+<img src="../Images/sp.gif" width=126 height=1><i>Submenu... (not set)</i>
+
+<p><img src="../Images/sp.gif" width=105 height=1><b>Break</b><br>
+<img src="../Images/sp.gif" width=126 height=1><i>Name</i> &#34;Break&#34;<br>
+<img src="../Images/sp.gif" width=126 height=1><i>Receiver</i> object that will receive the Break message<br>
+<img src="../Images/sp.gif" width=126 height=1><i>Message</i> selector of message sent to Break's receiver<br>
+<img src="../Images/sp.gif" width=126 height=1><i>Length</i> 0<br>
+<img src="../Images/sp.gif" width=126 height=1><i>Submenu... (not set)</i>
+
+<p><img src="../Images/sp.gif" width=105 height=1><b>Bust</b><br>
+<img src="../Images/sp.gif" width=126 height=1><i>Name</i> &#34;Bust&#34;<br>
+<img src="../Images/sp.gif" width=126 height=1><i>Receiver</i> object that will receive the Bust message<br>
+<img src="../Images/sp.gif" width=126 height=1><i>Message</i> selector of message sent to Bust's receiver<br>
+<img src="../Images/sp.gif" width=126 height=1><i>Length</i> 0<br>
+<img src="../Images/sp.gif" width=126 height=1><i>Submenu... (not set)</i>
+
+<p><img src="../Images/sp.gif" width=108 height=1><font size=+1>To do this, you might&nbsp; write write the <b>init </b>method of your module to look like:</font>
+
+<p><img src="../Images/sp.gif" width=108 height=1><tt>- init</tt><br>
+<img src="../Images/sp.gif" width=124 height=1><tt>{</tt><br>
+<img src="../Images/sp.gif" width=124 height=1><tt>id returnVal=[super init];</tt><br>
+<img src="../Images/sp.gif" width=138 height=1><tt><b>// ABSOLUTELY CALL [super init] FIRST!!!</b></tt>
+
+<p><img src="../Images/sp.gif" width=124 height=1><tt>ModuleMenuNode* tweak= [[ModuleMenuNode alloc]</tt><br>
+<img src="../Images/sp.gif" width=143 height=1><tt>initLeafNode:@&#34;Tweak&#34;:self:@selector(tweakMe:)];</tt><br>
+<img src="../Images/sp.gif" width=124 height=1><tt>ModuleMenuNode* twist= [[ModuleMenuNode alloc]</tt><br>
+<img src="../Images/sp.gif" width=143 height=1><tt>initNonleafNode:@&#34;Twist&#34;];</tt>
+
+<p><img src="../Images/sp.gif" width=124 height=1><tt>ModuleMenuNode* bend= [[ModuleMenuNode alloc]</tt><br>
+<img src="../Images/sp.gif" width=143 height=1><tt>initLeafNode:@&#34;Bend&#34;:self:@selector(bendMe:)];</tt><br>
+<img src="../Images/sp.gif" width=124 height=1><tt>ModuleMenuNode* break= [[ModuleMenuNode alloc]</tt><br>
+<img src="../Images/sp.gif" width=143 height=1><tt>initLeafNode:@&#34;Break&#34;:self:@selector(breakMe:)];</tt><br>
+<img src="../Images/sp.gif" width=124 height=1><tt>ModuleMenuNode* bust= [[ModuleMenuNode alloc]</tt><br>
+<img src="../Images/sp.gif" width=143 height=1><tt>initLeafNode:@&#34;Bust&#34;:self:@selector(bustMe:)];</tt>
+
+<p><img src="../Images/sp.gif" width=124 height=1><tt>[TheModuleMenuNode addSubmenu: tweak];</tt><br>
+<img src="../Images/sp.gif" width=124 height=1><tt>[TheModuleMenuNode addSubmenu: twist];</tt>
+
+<p><img src="../Images/sp.gif" width=124 height=1><tt>[twist addSubmenu: bend];</tt><br>
+<img src="../Images/sp.gif" width=124 height=1><tt>[twist addSubmenu: break];</tt><br>
+<img src="../Images/sp.gif" width=124 height=1><tt>[twist addSubmenu: bust];</tt>
+
+<p><img src="../Images/sp.gif" width=124 height=1><tt>[tweak release]; [twist release];</tt><br>
+<img src="../Images/sp.gif" width=124 height=1><tt>[bend release]; [break release]; [bust release];</tt>
+
+<p><img src="../Images/sp.gif" width=124 height=1><tt>return returnVal;</tt><br>
+<img src="../Images/sp.gif" width=124 height=1><tt>}</tt>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1>As a result, Resound would create menus in its Modules menu as such:</font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><img src="paste.gif" width=162 height=103 border=0>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1>Resound attaches the appropriate receiver to as the target of Tweak, Bend, Break, and Bust, and sets them to call the appropriate message.&nbsp; In the example above, the receivers of all menus have been set to your own module, and the modules will call, respectively, <b>tweakMe:, bendMe:, breakMe:,</b> or <b>bustMe:.</b></font>
+
+<p><img src="../Images/sp.gif" width=68 height=1><font size=+2><b>Instance Variables</b></font><br>
+<img src="../Images/sp.gif" width=105 height=1><font size=+1>NSString*&nbsp; <b>name;</b></font><br>
+<img src="../Images/sp.gif" width=105 height=1><font size=+1>id <b>receiver;</b></font><br>
+<img src="../Images/sp.gif" width=105 height=1><font size=+1>id <b>message;</b></font><br>
+<img src="../Images/sp.gif" width=105 height=1><font size=+1>int <b>length;</b></font><br>
+<img src="../Images/sp.gif" width=105 height=1><font size=+1>NSMutableArray* <b>submenu;</b></font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1>name&nbsp; The name to put in the menu.</font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1>receiver&nbsp; The target of the method sent when the menu is selected.</font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1>message&nbsp; The selector for the method sent when the menu is selected.</font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1>length&nbsp; The number of items in the submenu. This is no longer used in the API, but is here for backward-compatibility only</font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1>submenu&nbsp; The array of submenu ModuleMenuNodes.</font>
+
+<p><br><br>
+
+<p><img src="../Images/sp.gif" width=68 height=1><font size=+2><b>Method Types</b></font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1>Object Maintenance - initLeafNode:::</font><br>
+<img src="../Images/sp.gif" width=307 height=1><font size=+1>- initNonleafNode:</font><br>
+<img src="../Images/sp.gif" width=307 height=1><font size=+1>- dealloc</font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1>Data Retrieval - getNameAsString</font><br>
+<img src="../Images/sp.gif" width=307 height=1><font size=+1>- getReceiver</font><br>
+<img src="../Images/sp.gif" width=307 height=1><font size=+1>- getMessage</font><br>
+<img src="../Images/sp.gif" width=307 height=1><font size=+1>- getSubmenu:</font><br>
+<img src="../Images/sp.gif" width=307 height=1><font size=+1>- numSubmenus</font><br>
+<img src="../Images/sp.gif" width=307 height=1><font size=+1>- isLeafNode</font>
+
+<p><br><br>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1>Setting Data - setNameToString:</font><br>
+<img src="../Images/sp.gif" width=307 height=1><font size=+1>- setReceiver:</font><br>
+<img src="../Images/sp.gif" width=307 height=1><font size=+1>- setMessage:</font><br>
+<img src="../Images/sp.gif" width=307 height=1><font size=+1>- addSubmenu:</font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1>Backward-Compatibility - init</font><br>
+<img src="../Images/sp.gif" width=307 height=1><font size=+1>- getName</font><br>
+<img src="../Images/sp.gif" width=307 height=1><font size=+1>- setName:</font><br>
+<img src="../Images/sp.gif" width=307 height=1><font size=+1>- setLength:</font><br>
+<img src="../Images/sp.gif" width=307 height=1><font size=+1>- getLength</font><br>
+<img src="../Images/sp.gif" width=307 height=1><font size=+1>- setSubmenu::</font>
+
+<p><br><br><br><br><br>
+
+<p><img src="../Images/sp.gif" width=68 height=1><font size=+2><b>Instance Methods</b></font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1><b>addSubmenu:</b></font><br>
+<img src="../Images/sp.gif" width=124 height=1><font size=+1>-&nbsp; <b>addSubmenu:</b> (ModuleMenuNode*) <i>this_node</i></font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1>Sets <i>this_node</i> as the next node in the ModuleMenuNode's submenu array.</font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1><b>dealloc</b></font><br>
+<img src="../Images/sp.gif" width=124 height=1><font size=+1>- (void) <b>dealloc</b></font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1>Frees the ModuleMenuNode.</font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1><b>getLength</b></font><br>
+<img src="../Images/sp.gif" width=124 height=1><font size=+1>-&nbsp; (int) <b>getLength</b></font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1>Returns the length of the ModuleMenuNode's submenu array.&nbsp;&nbsp; Only for backward-compatibility.&nbsp; You should use numSubmenus instead (more robust).</font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1><b>getMessage</b></font><br>
+<img src="../Images/sp.gif" width=124 height=1><font size=+1>-&nbsp; (SEL) <b>getMessage</b></font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1>Returns the ModuleMenuNode's receiving message.</font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1><b>getName</b></font><br>
+<img src="../Images/sp.gif" width=124 height=1><font size=+1>- (char*) <b>getName</b></font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1>Returns the ModuleMenuNode's name.&nbsp;&nbsp; You should not expect this name to be around for long (even a second call to <b>getName:</b> will change it). For backward-compatibility.&nbsp; You should now use <b>getNameAsString:</b>.</font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1><b>getNameAsString</b></font><br>
+<img src="../Images/sp.gif" width=124 height=1><font size=+1>- (NSString*) <b>getNameAsString</b></font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1>Returns the ModuleMenuNode's name.</font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1><b>getReceiver</b></font><br>
+<img src="../Images/sp.gif" width=124 height=1><font size=+1>-&nbsp; <b>getReceiver</b></font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1>Returns the ModuleMenuNode's receiver (target).</font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1><b>getSubmenu:</b></font><br>
+<img src="../Images/sp.gif" width=124 height=1><font size=+1>-&nbsp; <b>getSubmenu:</b>(int)<i>this_index</i></font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1>Returns the subsidiary ModuleMenuNode that is at <i>this_index</i> position of the parent ModuleMenuNode's submenu array .</font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1><b>init</b></font><br>
+<img src="../Images/sp.gif" width=124 height=1><font size=+1>- <b>init</b></font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1>Initializes the ModuleMenuNode.&nbsp; Only for backward-compatibility.</font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1><b>initLeafNode:::</b></font><br>
+<img src="../Images/sp.gif" width=124 height=1><font size=+1>- <b>initLeafNode:</b>(NSString*) <i>this_name</i><b>:</b>(NSObject*) <i>this_receiver</i><b>:</b>(SEL)<i>this_message</i></font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1>Initializes the ModuleMenuNode to be a leaf node, that is, one which doesn't just pop up a submenu.</font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1><b>initNonleafNode:::</b></font><br>
+<img src="../Images/sp.gif" width=124 height=1><font size=+1>- <b>initNonleafNode:</b>(NSString*) <i>this_name</i></font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1>Initializes the ModuleMenuNode to be a nonleaf node, that is, one which pops up a submenu.</font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1><b>isLeafNode</b></font><br>
+<img src="../Images/sp.gif" width=124 height=1><font size=+1>-&nbsp; (BOOL)<b>isLeafNode</b></font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1>Returns YES if this was initialized as a leaf node, NO if it was initialized as a nonleaf node. This is <i>the</i> defining method for whether or not a node is a leaf node.</font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1><b>numSubmenus</b></font><br>
+<img src="../Images/sp.gif" width=124 height=1><font size=+1>-&nbsp; (int)<b>numSubmenus</b></font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1>Returns the number of submenus currently stored in this node.</font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1><b>setLength:</b></font><br>
+<img src="../Images/sp.gif" width=124 height=1><font size=+1>-&nbsp; <b>setLength:</b>(int)<i>this_length</i></font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1>Sets the length of the ModuleMenuNode's submenu array to <i>this_length</i>.&nbsp;&nbsp; Only for backward-compatibility.</font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1><b>setMessage:</b></font><br>
+<img src="../Images/sp.gif" width=124 height=1><font size=+1>-&nbsp; <b>setMessage:</b>(SEL)<i>this_message</i></font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1>Sets the ModuleMenuNode's receiving message to <i>this_message</i>, which should be a selector for a method of one id argument (which will be the menu whose menu item had been selected).&nbsp; For backward compatibility, when this method is called, the node then &#34;becomes&#34; a leaf node.</font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1><b>setName:</b></font><br>
+<img src="../Images/sp.gif" width=124 height=1><font size=+1>- <b>setName:</b>(char*)<i>this_name</i></font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1>Sets the ModuleMenuNode's name to <i>this_name. </i>For backward-compatibility only.&nbsp; You should now use <b>setNameToString:</b>.</font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1><b>setNameToString:</b></font><br>
+<img src="../Images/sp.gif" width=124 height=1><font size=+1>- <b>setNameToString:</b>(NSString*)<i>this_name</i></font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1>Sets the ModuleMenuNode's name to <i>this_name.</i></font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1><b>setReceiver:</b></font><br>
+<img src="../Images/sp.gif" width=124 height=1><font size=+1>-&nbsp; <b>setReceiver:</b><i>this_receiver</i></font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1>Sets the ModuleMenuNode's receiver (target). This will be the object sent the message defined in <b>setMessage</b> when the ModuleMenuNode's menu item is selected by the user.&nbsp; For backward compatibility, when this method is called, the node then &#34;becomes&#34; a leaf node.</font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1><b>setSubmenu::</b></font><br>
+<img src="../Images/sp.gif" width=124 height=1><font size=+1>-&nbsp; <b>setSubmenu:</b>(int)<i>this_index : this_node</i></font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1>Sets (as <i>this_node)</i> the subsidiary ModuleMenuNode that is at <i>this_index</i> position of the parent ModuleMenuNode's submenu array.&nbsp;&nbsp; Only for backward-compatibility.&nbsp; Note that this will now only work if you set the menus in order (0, 1, 2, 3... etc.).&nbsp; Otherwise your old code may break.</font>
+
+
+
+<p>
+
+</body>
+</html>

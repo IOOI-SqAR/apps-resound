@@ -1,0 +1,77 @@
+/** vocReader.m
+Copyright (c) 1998 Jerome Genest.  All rights reserved.
+jgenest@gel.ulaval.ca
+
+This source code was insprired from and thus contains parts from:
+
+-C++ framework (in "A Programmer©s guide to sound, Addison-Wesley)
+ by Tim Kientzle Copyright 1997.  All rights reserved.
+
+Permission to use, copy, modify, and distribute this material for any
+NON-PROFIT purpose is hereby granted. Commercial use of this material
+is granted only with the sole permission of Jerome Genest. Both are
+provided that this permission notice appear in all source copies, and that
+the author's name shall not be used in advertising or publicity pertaining
+to this material without the specific, prior written permission of the author.
+
+THIS SOFTWARE IS PROVIDED ``AS IS'' AND ANY EXPRESS OR IMPLIED
+WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+IN NO EVENT SHALL THE AUTHORS BE LIABLE FOR
+ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT
+OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR
+BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
+OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
+
+
+#import <AppKit/AppKit.h>
+#import "AudioFileReader.h"
+#import "SoundFormats.h"
+
+
+#define MAXREPEAT 5
+
+BOOL isVocFile(FILE *file);
+
+@interface VocReader: AudioFileReader
+{
+int blockType;  // Type of current block
+unsigned long   bytesRemaining;  // bytes left in this block
+int repeatDepth;  // Number of nested repeats
+
+int repeatCounts[MAXREPEAT];
+
+long repeatPosition[MAXREPEAT];
+
+unsigned long dataLength;
+int fileChannels;
+int fileSampleRate;
+int fileWidth;
+int fileCompression;
+}
+
+-(void) readHeader;
+-(void) getBlock;
+-(void) readBlock1:(long) blockLength;
+-(void) readBlock8:(long) blockLength;
+-(void) readBlock9:(long) blockLength;
+
+-initFromFile:(FILE *)theFile;
+- (void)dealloc;
+
+-(long) dataLength;
+-(short) outputFormat;
+
+
+- (void) minMaxSamplingRate:(long*) min :(long*) max: (long*) prefer;
+- (void) minMaxChannels:(long*) min :(long*) max: (long*) prefer;
+
+- (long) getSamples:(void*)samplesBuffer forSize:(long)size;
+- (long) readBytes:(void*)bytesBuffer forSize:(long)size;
+
+
+@end

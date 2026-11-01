@@ -1,0 +1,64 @@
+{
+    IBClasses = (
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {
+            ACTIONS = {
+                GetInspector = id; 
+                ZoomChanged = id; 
+                takeFloatValueFromMe = id; 
+                toggleContinuousZoom = id; 
+                zoomAllIn = id; 
+                zoomAllOut = id; 
+                zoomIn = id; 
+                zoomInBig = id; 
+                zoomInOneReduction = id; 
+                zoomInSmall = id; 
+                zoomOut = id; 
+                zoomOutBig = id; 
+                zoomOutOneReduction = id; 
+                zoomOutSmall = id; 
+                zoomToSelection = id; 
+            }; 
+            CLASS = ZoomController; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                ReductionField = id; 
+                TheFileController = id; 
+                TheInspector = id; 
+                TheInspectorController = id; 
+                ZoomField = id; 
+                ZoomSlider = id; 
+                continuous_button = id; 
+            }; 
+            SUPERCLASS = Object; 
+        }, 
+        {
+            ACTIONS = {
+                findSelection = id; 
+                getInspector = id; 
+                takeFloatValueFromMe = id; 
+                toggleContinuousZoom = id; 
+                update = id; 
+                zoomAllIn = id; 
+                zoomAllOut = id; 
+                zoomChanged = id; 
+                zoomInOneReduction = id; 
+                zoomOutOneReduction = id; 
+                zoomToSelection = id; 
+            }; 
+            CLASS = ZoomInspector; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                continuous_button = id; 
+                fileController = id; 
+                inspector = id; 
+                inspectorController = id; 
+                reductionField = id; 
+                zoomField = id; 
+                zoomSlider = id; 
+            }; 
+            SUPERCLASS = NSObject; 
+        }
+    ); 
+    IBVersion = 1; 
+}

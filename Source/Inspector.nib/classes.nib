@@ -1,0 +1,31 @@
+{
+    IBClasses = (
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {
+            ACTIONS = {
+                displayAttributes = id; 
+                displayInfoString = id; 
+                displayInspector = id; 
+                displayMarks = id; 
+                displaySelection = id; 
+                displayZoom = id; 
+            }; 
+            CLASS = InspectorManager; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                attributesInspector = id; 
+                fileController = id; 
+                infoStringInspector = id; 
+                inspector = id; 
+                inspectorView = id; 
+                marksInspector = id; 
+                nothingInspector = id; 
+                popUpListButton = id; 
+                selectionInspector = id; 
+                zoomInspector = id; 
+            }; 
+            SUPERCLASS = NSObject; 
+        }
+    ); 
+    IBVersion = 1; 
+}

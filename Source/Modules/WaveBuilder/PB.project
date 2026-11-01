@@ -1,0 +1,27 @@
+{
+    BUNDLE_EXTENSION = rmod; 
+    FILESTABLE = {
+        CLASSES = (WaveBuilderModule.m); 
+        FRAMEWORKSEARCH = (/System/Library/PrivateFrameworks); 
+        H_FILES = (Module.h, ModuleMenuNode.h, ModuleProtocol.h, WaveBuilderModule.h); 
+        IMAGES = (); 
+        INTERFACES = (WaveBuilder.nib); 
+        OTHER_RESOURCES = (ModuleInfo.rtfd); 
+        OTHER_SOURCES = (Makefile, Makefile.postamble, Makefile.preamble); 
+    }; 
+    GENERATEMAIN = YES; 
+    LANGUAGE = English; 
+    LOCALIZABLE_FILES = {}; 
+    MAKEFILEDIR = "$(MAKEFILEPATH)/pb_makefiles"; 
+    NEXTSTEP_BUILDTOOL = /bin/gnumake; 
+    NEXTSTEP_DOCUMENTEXTENSIONS = (); 
+    NEXTSTEP_JAVA_COMPILER = /usr/bin/javac; 
+    NEXTSTEP_OBJCPLUS_COMPILER = /usr/bin/cc; 
+    PDO_UNIX_JAVA_COMPILER = "$(NEXTDEV_BIN)/javac"; 
+    PDO_UNIX_OBJCPLUS_COMPILER = "$(NEXTDEV_BIN)/gcc"; 
+    PROJECTNAME = WaveBuilder; 
+    PROJECTTYPE = Bundle; 
+    PROJECTVERSION = 2.8; 
+    WINDOWS_JAVA_COMPILER = "$(JDKBINDIR)/javac.exe"; 
+    WINDOWS_OBJCPLUS_COMPILER = "$(DEVDIR)/gcc"; 
+}

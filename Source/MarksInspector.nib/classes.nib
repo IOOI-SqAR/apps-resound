@@ -1,0 +1,37 @@
+{
+    IBClasses = (
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {
+            ACTIONS = {
+                changeMarks = id; 
+                getInspector = id; 
+                marksChanged = id; 
+                setToDecibel = id; 
+                setToPercent = id; 
+                setToSamples = id; 
+                setToSeconds = id; 
+                setToSixteen = id; 
+                setToTwenty = id; 
+                setToTwentyFour = id; 
+                update = id; 
+            }; 
+            CLASS = MarksInspector; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                amplitude = id; 
+                amplitude_menu = id; 
+                fileController = id; 
+                inspector = id; 
+                inspectorController = id; 
+                major_tick_field = id; 
+                minor_tick_field = id; 
+                minor_tick_menu = id; 
+                scroll_to_reflect = id; 
+                ticks = id; 
+                zero_line = id; 
+            }; 
+            SUPERCLASS = NSObject; 
+        }
+    ); 
+    IBVersion = 1; 
+}

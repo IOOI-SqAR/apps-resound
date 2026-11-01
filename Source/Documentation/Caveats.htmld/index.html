@@ -1,0 +1,95 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<!-- Created with LatinByrd III -->
+<!-- File: /private/tmp/O_Help/Help/Caveats.rtfd -->
+<!-- Date: Thu Apr 30 20:18:53 1998 -->
+<head>
+<title>Caveats</title>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" link="#0000FF" alink="#FF00FF" vlink="#FF0000">
+
+<basefont size=3>
+
+<p>
+
+<p><font size=+2><b>Caveats</b></font>
+
+<hr noshade size=1>
+
+<p><b>Creating Modules with Multiple Objects</b>
+
+<p>NeXT's dynamic loading system expects the first object in a bundle to be the &#34;main&#34; object (for Resound, the &#34;main&#34; object is the object in your bundle that subclassed from <i>Module</i>).&nbsp; However, ProjectBuilder.app links the objects in alphabetical order, regardless of what's the &#34;main&#34; object in your bundle.&nbsp; If you have more than one code file in your project, the bundle will not compile properly.
+
+<p>You can fix this by re-linking the bundle yourself.&nbsp; For example, for an FFT module I'm working on, Project builder links my object files together as such:
+
+<p><tt>cc -g -O -Wall -I./sym -arch m68k -nostdlib m68k_obj/DiscreteGraphView.o m68k_obj/FFTController.o m68k_obj/FFTModule.o m68k_obj/FFT.o -r -o FFT.bundle/FFT</tt>
+
+<p>This links the DiscreteGraphView code before the FFTModule code, and so the bundle doesn't work.&nbsp; So I re-link the object files by building with a target of <i>Bundle</i> (which builds everything right but the bundle-executable itself)<i>, </i>removing the bad bundle-executable, re-linking it the right way, and stripping it manually:
+
+<p><tt>rm FFT.bundle/FFT</tt>
+
+<p><tt>cc -g -O -Wall -I./sym -arch m68k -nostdlib m68k_obj/FFTModule.o m68k_obj/DiscreteGraphView.o m68k_obj/FFTController.o m68k_obj/FFT.o -r -o FFT.bundle/FFT</tt>
+
+<p><tt>strip -x -u FFT.bundle/FFT</tt>
+
+<p>Alternatively, you can control-drag on the Classes list in ProjectBuilder's browser to change the order of the classes.&nbsp; However, ProjectBuilder may occassionally reset these.
+
+<p><b>About Resound's SoundViews</b>
+
+<p>Resound has made some minor modifications to NeXT's SoundView object to clean up some bugs in the object, add scrolling ability, and add the ruler and amplitude/zero lines.&nbsp; Most of these shouldn't affect your module development at all, but you should be aware that Resound has overridden at least the following SoundView methods:
+
+<p>- initFrame:<br>
+- getSelection:size:<br>
+- setSelection:size:<br>
+- selectAll:<br>
+- drawSelf::
+
+<p>Of particular importance are the selection methods.&nbsp; NeXT's Sound Views store selection information as an NXRect of &#34;gray area&#34; over a sound.&nbsp; As a result, it's possible to select far more sound than actually exists!&nbsp; setSelection and getSelection have been modified to accept and return the <i>actual</i> selected values, not NeXT's broken ones.&nbsp; selectAll: selects the entire sound regardless of the current reductionFactor (NeXT's version is also broken here).
+
+<p>Resound's custom Sound View draws its ruler <i>outside</i> the SoundView's valid drawing area (outside the bounds)--just be aware of this--and turns off the SoundView's clipping temporarily while doing so (with [self setClipping:NO]). The ruler is drawn on the Sound View after the Sound View has drawn its sound data.&nbsp; So if you want to scribble on the Sound View, you've been suitably warned.
+
+<p><b>Replacing the Entire Sound</b>
+
+<p>When replacing the entire sound of a SoundView (through the use of <b>setSound: </b>or some similar method), you should be sure to invalidate the pasteboard if the SoundView is its current owner.&nbsp; Otherwise, the SoundView will become confused when pasting the sound, and the program will bomb (see <i>Pasting </i>above).&nbsp; You can check and invalidate the SoundView using the <b>isOwner:</b> and <b>invalidatePasteboard</b> methods in code like this :
+
+<p><font size=-1><tt>if ([TheModuleController isOwner:&nbsp; <b><i>mySoundView</i></b>&nbsp; ])</tt></font><br>
+<img src="../Images/sp.gif" width=18 height=1><font size=-1><tt>// <b><i>mySoundView</i></b> is the SoundView in question</tt></font>
+
+<p><img src="../Images/sp.gif" width=18 height=1><font size=-1><tt>[TheModuleController invalidatePasteboard];</tt></font>
+
+<p><img src="../Images/sp.gif" width=18 height=1><font size=-1><tt><b>/* Set the new sound here */</b></tt></font>
+
+<p><b>Custom Objects</b>
+
+<p>A number of useful custom widgets have been created throughout Resound's development.&nbsp; Some of these, including good sound meters and real-time sound information tracking objects have been donated with code to the <b>MiscKit</b>. You'll find them under the <b>MiscSoundPalette.</b>&nbsp; The MiscKit is maintained by Don Yacktman (yackd@misckit.com), and all objects in the MiscKit are free for your use in both freeware and professional applications.
+
+<p><b>Some Suggestions</b>
+
+<p><img src="../Images/CheckMark.gif" width=10 height=11> An important NeXT bug to be aware of:&nbsp; if you set a SoundView's sound with <b>setSound:,</b> the reduction factor (current zoom) is lost.&nbsp; When changing the actual sound associated with a SoundView, you should follow this procedure:
+
+<p><img src="../Images/sp.gif" width=18 height=1>1. Disable the window's flushing<br>
+<img src="../Images/sp.gif" width=18 height=1>2. Get the current selection information of the SoundView<br>
+<img src="../Images/sp.gif" width=18 height=1>3. Get the current reduction factor of the SoundView<br>
+<img src="../Images/sp.gif" width=18 height=1>4. Set the new sound<br>
+<img src="../Images/sp.gif" width=18 height=1>5. Set the SoundView's reduction factor to #3<br>
+<img src="../Images/sp.gif" width=18 height=1>6. Set the SoundView's selection information to #2<br>
+<img src="../Images/sp.gif" width=18 height=1>7. Reenable the window's flush and flush the window.<br>
+<img src="../Images/sp.gif" width=18 height=1>8. (Remember This!) inform Resound with <b>soundChanged</b>
+
+<p><img src="../Images/CheckMark.gif" width=10 height=11> If you change the rate or number of channels of the sound, this could affect the selection, apparent reduction factor, and scroll position--there are physically more or fewer samples in the sound now, and the scroll position, selection, and reduction factor are all sample-based, so they are often appear to the user to have &#34;changed&#34;.&nbsp; This is natural; you can compensate in your module if you like, but just understand that it's <i>not</i> a bug in the underlying application code.
+
+<p><img src="../Images/CheckMark.gif" width=10 height=11> If you compile your module for Intel machines, remember that sound data is normally stored in a different format than Intel machines can directly access. To convert the sound, use the SNDConvertSoundToHost() and SNDConvertHostToSound() functions.&nbsp; Remember to convert the sound back to its native format before finishing.
+
+<p><img src="../Images/CheckMark.gif" width=10 height=11> Remember that the sound data may be fragmented or stereo.&nbsp; This is especially important to keep in mind when traversing the sound information and making changes--fragmented sound isn't all in one array.
+
+<p><img src="../Images/CheckMark.gif" width=10 height=11> Try to operate only on the selection, unless there is no selection.&nbsp; Users tend to wonder why an operation is global even though they selected an area to perform the operation on.
+
+<p><img src="../Images/sp.gif" width=3 height=1><img src="../Images/CheckMark.gif" width=10 height=11> If the sound data is stored in CODEC format, you may need to convert it to and from 16-bit linear using the SNDMuLaw() and SNDiMuLaw() functions.
+
+
+
+<p><br>
+
+</body>
+</html>

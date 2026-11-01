@@ -1,0 +1,12 @@
+{
+    IBClasses = (
+        {
+            CLASS = ErrorHandler; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {errorText = id; errorWindow = id; }; 
+            SUPERCLASS = NSObject; 
+        }, 
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }
+    ); 
+    IBVersion = 1; 
+}

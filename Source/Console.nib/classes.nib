@@ -1,0 +1,103 @@
+{
+    IBClasses = (
+        {
+            ACTIONS = {
+                displayRecordFormatPanel = id; 
+                meterWillUpdateOnOwn = id; 
+                pauseDown = id; 
+                playDown = id; 
+                recordDown = id; 
+                setFormatToMe = id; 
+                setLeft = id; 
+                setMono = id; 
+                setMonoChannels = id; 
+                setRateToMe = id; 
+                setRecordingLength = id; 
+                setRight = id; 
+                setSourceLine = id; 
+                setSourceMic = id; 
+                setStereoChannels = id; 
+                showConsole = id; 
+                stopDown = id; 
+            }; 
+            CLASS = ConsoleManager; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                channels = id; 
+                console = id; 
+                fileController = id; 
+                formatMenu = id; 
+                formatWindow = id; 
+                hidden_window = id; 
+                leftRecordGain = id; 
+                light = id; 
+                maxrate = id; 
+                meter = id; 
+                minrate = id; 
+                monoRecordGain = id; 
+                pauseButton = id; 
+                playButton = id; 
+                rateField = id; 
+                rateMenu = id; 
+                recordButton = id; 
+                recordLengthField = id; 
+                rightRecordGain = id; 
+                soundManager = id; 
+                soundTracker = id; 
+                source = id; 
+                stopButton = id; 
+            }; 
+            SUPERCLASS = Object; 
+        }, 
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {
+            ACTIONS = {
+                run = id; 
+                sendDeemphasis = id; 
+                sendLeft = id; 
+                sendLeftPeak = id; 
+                sendMono = id; 
+                sendMonoPeak = id; 
+                sendMute = id; 
+                sendPercent = id; 
+                sendRatio = id; 
+                sendRight = id; 
+                sendRightPeak = id; 
+                sendSamples = id; 
+                sendSeconds = id; 
+                setDeemphasisTo = id; 
+                setMuteTo = id; 
+                setRefreshToMe = id; 
+                setVolumeTo = id; 
+                stop = id; 
+            }; 
+            CLASS = MiscSoundTracker; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {sound = id; target = id; }; 
+            SUPERCLASS = NSObject; 
+        }, 
+        {
+            ACTIONS = {
+                meterDidUpdate = id; 
+                meterWillUpdate = id; 
+                meterWillUpdateOnOwn = id; 
+                run = id; 
+                setMono = id; 
+                setStereo = id; 
+                setToInput = id; 
+                setToOutput = id; 
+                stop = id; 
+            }; 
+            CLASS = MiscVolumeMeter; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {delegate = id; sound = id; }; 
+            SUPERCLASS = NSView; 
+        }, 
+        {
+            CLASS = ResoundMiscVolumeMeter; 
+            LANGUAGE = ObjC; 
+            SUPERCLASS = MiscVolumeMeter; 
+        }
+    ); 
+    IBVersion = 1; 
+}

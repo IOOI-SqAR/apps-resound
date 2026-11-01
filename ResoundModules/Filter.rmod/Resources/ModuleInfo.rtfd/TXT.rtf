@@ -1,0 +1,65 @@
+{\rtf0\ansi{\fonttbl\f0\fswiss Helvetica;}
+\paperw9840
+\paperh12820
+\margl120
+\margr120
+{\colortbl;\red0\green0\blue0;\red85\green85\blue85;}
+\pard\tx520\tx1060\tx1600\tx2120\tx2660\tx3200\tx3720\tx4260\tx4800\tx5320\f0\b\i0\ulnone\fs24\fc1\cf1  \
+
+\fs72 Filter
+\gray333\fc2\cf2 \
+
+\fs24\gray0\fc1\cf1 Sean Luke 	
+\b0 seanl@cs.umd.edu
+\b \
+November 28, 1997
+\fs72 \
+
+\fs24 \
+
+\b0 Filter provides facilities for generating convolution (comb) filters and echo filters.   Filter only works for 16-bit, 44KHz mono sounds.\
+\
+Filter adds to the Modules menu the following menu options:\
+\
+
+\b 	
+{{\NeXTGraphic257 paste.tiff \width2500 \height420
+}
+¨}\pard\tx520\tx1060\tx1600\tx2120\tx2660\tx3200\tx3720\tx4260\tx4800\tx5320\f0\b\i0\ulnone\fs24\fc1\cf1 \
+	\
+		
+{{\NeXTGraphic263 569067_paste.tiff \width2080 \height1260
+}
+¨}\pard\tx520\tx1060\tx1600\tx2120\tx2660\tx3200\tx3720\tx4260\tx4800\tx5320\f0\b\i0\ulnone\fs24\fc1\cf1 \
+		\
+Comb Filter...\
+
+\b0 This brings up a panel which lets you perform convolution over the sound.  If you don't know what this is, it won't help you much probably.  Even if you 
+\i do
+\i0  know, it won't help much as the panel provides no automatic convolution-kernel generation facilities, sorry.  This is primarily provided as an example and educational tool.  FIR filters (the common types) use the 
+\b Non-Recursive
+\b0  setting.  IIR (recursive) filters use the 
+\b Recursive
+\b0  setting.  Press 
+\b Apply
+\b0  to begin the convolution process over the 
+\i entire
+\i0  sound, not the sound selection.  The filter automatically normalizes the results.\
+\
+
+\b Echo Filter...\
+
+\b0 This brings up a panel which lets you add echos into your sound.  To add an echo 
+\i n
+\i0  samples in the future (where one second is 44100 samples), add a row with 
+\i n
+\i0  in the position column, and set the amplitude column to how loud the echo should be (expressed as a fraction, between 0 and 1, of the current sound amplitude).  To put the echo 
+\i n
+\i0  samples in the past (that is, prior to the sound it's echoing), make the position column equal to negative 
+\i n.  
+\i0 \
+\
+Unless for some reason you want 
+\i only
+\i0  echos, you'll probably want the original sound mixed in with your echos.  To do this, leave the first row (position 0, amplitude 1) untouched–it will represent the original sound.  Note: You'll probably not want your echos (and original sound) amplitude fractions summing to more than 1.
+}

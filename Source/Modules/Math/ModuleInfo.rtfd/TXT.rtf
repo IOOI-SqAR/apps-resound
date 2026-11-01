@@ -1,0 +1,67 @@
+{\rtf0\ansi{\fonttbl\f0\fswiss Helvetica;}
+\paperw9840
+\paperh11880
+\margl120
+\margr120
+{\colortbl;\red0\green0\blue0;\red85\green85\blue85;}
+\pard\tx520\tx1060\tx1600\tx2120\tx2660\tx3200\tx3720\tx4260\tx4800\tx5320\f0\b\i0\ulnone\fs24\fc1\cf1  \
+ 
+\fs72 Math
+\pard\tx520\tx1060\tx1600\tx2120\tx2660\tx3200\tx3720\tx4260\tx4800\tx5320\gray333\fc2\cf2 \
+
+\fs24\gray0\fc1\cf1 Sean Luke 	
+\b0 seanl@cs.umd.edu
+\b \
+November 28, 1997
+\fs72 \
+
+\fs24 \
+
+\b0 Math is a module which demonstrates how to build Resound modules.  Its source code is located in the 
+\i APIExamples
+\i0  directory.  Math's operations work for 8-bit linear, 8-bit mulaw, 16-bit linear, floating-point and double-precision floating-point sounds. \
+\
+\
+Math adds to the Modules menu the following menu options:\
+\
+
+\b 	
+{{\NeXTGraphic371 paste.tiff \width2500 \height820
+}
+¬}\pard\tx520\tx1060\tx1600\tx2120\tx2660\tx3200\tx3720\tx4260\tx4800\tx5320\f0\b\i0\ulnone\fs24\fc1\cf1 \
+	\
+			
+{{\NeXTGraphic378 839924_paste.tiff \width2860 \height2060
+}
+¬}\pard\tx520\tx1060\tx1600\tx2120\tx2660\tx3200\tx3720\tx4260\tx4800\tx5320\f0\b\i0\ulnone\fs24\fc1\cf1 \
+	\
+Reverse\
+
+\b0 The Reverse menu option reverses (flips in time) the selection.  Reverse properly reverses each channel independently.\
+
+\pard\tx533\tx1067\tx1601\tx2135\tx2668\tx3202\tx3736\tx4270\tx4803\tx5337\fc1\cf1 \
+
+\pard\tx520\tx1060\tx1600\tx2120\tx2660\tx3200\tx3720\tx4260\tx4800\tx5320\b\fc1\cf1 Change Amplitude...\
+
+\b0 Change Amplitude... brings up a panel which allows the user to change the amplitude of the selection.  The user can manually set the amplitude to change, or has the option of halving the amplitude, doubling it, or setting it so that the sound is at its maximum amplitude without clipping.\
+\
+
+\pard\tx520\tx1060\tx1600\tx2120\tx2660\tx3200\tx3720\tx4260\tx4800\tx5320\b\fc1\cf1 Vertical Shift...\
+
+\b0 Vertical Shift... brings up a panel which allows the user to shift the selection's amplitude values positively or negatively.   Ordinarily this won't change much in the sound quality, because a sound's tonality is based not on its absolute amplitude position, but on its sample amplitudes 
+\i relative
+\i0  to one another.  However, this may be useful for certain esoteric purposes, primarily in mixing two sounds together.\
+
+\pard\tx520\tx1060\tx1600\tx2120\tx2660\tx3200\tx3720\tx4260\tx4800\tx5320\fc1\cf1 \
+
+\pard\tx520\tx1060\tx1600\tx2120\tx2660\tx3200\tx3720\tx4260\tx4800\tx5320\b\fc1\cf1 Invert\
+
+\b0 Invert negates all the amplitude values in the selection, effectively flip-flopping its phase.  Just as in vertical shifting, this won't change much of the sound tonality.  However, it may be useful for certain esoteric purposes, primarily in mixing two sounds together.\
+
+\pard\tx520\tx1060\tx1600\tx2120\tx2660\tx3200\tx3720\tx4260\tx4800\tx5320\fc1\cf1 \
+
+\pard\tx520\tx1060\tx1600\tx2120\tx2660\tx3200\tx3720\tx4260\tx4800\tx5320\b\fc1\cf1 Absolute Value\
+
+\b0 Absolute Value sets all the amplitude values in the selection to their absolute values (that is, negative values become positive, positive values stay positive).  This is a weird but extremely unlikely tool, and was included mostly for demonstration purposes.\
+
+}

@@ -1,0 +1,61 @@
+{
+    IBClasses = (
+        {
+            ACTIONS = {
+                cancelClosePanel = id; 
+                cancelQuitPanel = id; 
+                close = id; 
+                currentSound = id; 
+                currentSoundView = id; 
+                currentWindow = id; 
+                doPageLayout = id; 
+                newSound = id; 
+                newSoundFromMicrophone = id; 
+                newSoundFromPasteBoard = id; 
+                noSaveClosePanel = id; 
+                noSaveQuitPanel = id; 
+                open = id; 
+                print = id; 
+                quit = id; 
+                revert = id; 
+                save = id; 
+                saveAll = id; 
+                saveAs = id; 
+                saveClosePanel = id; 
+                saveQuitPanel = id; 
+                setToSaveFormatAu = id; 
+                setToSaveFormatSnd = id; 
+            }; 
+            CLASS = FileController; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                closeButton = id; 
+                closePanel = id; 
+                consoleManager = id; 
+                currentPanel = id; 
+                currentWindow = id; 
+                editController = id; 
+                infoManager = id; 
+                inspectorManager = id; 
+                junkField = id; 
+                moduleController = id; 
+                preferencesManager = id; 
+                quitPanel = id; 
+                quitPanelNoCancel = id; 
+                revertButton = id; 
+                saveAllButton = id; 
+                saveAsButton = id; 
+                saveButton = id; 
+                savepanel = id; 
+                selectionManager = id; 
+                soundManager = id; 
+                soundViewCursor = id; 
+                zoomController = id; 
+            }; 
+            SUPERCLASS = NSObject; 
+        }, 
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {CLASS = Sound; LANGUAGE = ObjC; SUPERCLASS = NSObject; }
+    ); 
+    IBVersion = 1; 
+}

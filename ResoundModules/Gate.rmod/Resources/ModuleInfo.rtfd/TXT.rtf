@@ -1,0 +1,45 @@
+{\rtf0\ansi{\fonttbl\f0\fswiss Helvetica;}
+\paperw9840
+\paperh12820
+\margl120
+\margr120
+{\colortbl;\red0\green0\blue0;\red85\green85\blue85;}
+\pard\tx520\tx1060\tx1600\tx2120\tx2660\tx3200\tx3720\tx4260\tx4800\tx5320\f0\b\i0\ulnone\fs24\fc1\cf1  \
+ 
+\fs72 Gate
+\gray333\fc2\cf2 \
+
+\fs24\gray0\fc1\cf1 Sean Luke 	
+\b0 seanl@cs.umd.edu
+\b \
+November 28, 1997
+\fs72 \
+
+\fs24 \
+
+\b0 Gate provides a simple linear noise gate.  Gate's operations work for 8-bit linear, 8-bit mulaw, 16-bit linear, floating-point and double-precision floating-point sounds. \
+\
+Gate adds to the Modules menu the following menu options:\
+\
+
+\b 	
+{{\NeXTGraphic288 paste.tiff \width2500 \height420
+}
+¬}\pard\tx520\tx1060\tx1600\tx2120\tx2660\tx3200\tx3720\tx4260\tx4800\tx5320\f0\b\i0\ulnone\fs24\fc1\cf1 \
+	\
+Noise Gate\
+
+\b0 This brings up a panel which lets you perform a noise gate on the selected sound.  The noise gate works as follows:  \
+\
+	1.  First, you specify a 
+\i threshold:
+\i0  a minimum amplitude level which triggers the gate process.   The gate algorithm moves through the sound looking for a sample with this amplitude or below. \
+	2. It then continues through the sound for a certain number of seconds (which you provide).  \
+	3. If all the samples in this duration so far are below the threshold, the gate then continues through the sound, slowly reducing the amplitude size until it reaches zero (you provide the length of time needed to do reach zero).  If at any time it encounters a sample of amplitude greater than the threshold, the gating cutoff is halted and the gate continues through the sound, but at step #1.\
+	\
+The diagram below illustrates this process.\
+	\
+	
+{\pard\tx533\tx1067\tx1601\tx2135\tx2668\tx3202\tx3736\tx4270\tx4803\tx5337\fc0\cf0{\NeXTGraphic1155 paste.eps \width6740 \height8280
+}
+¬}}

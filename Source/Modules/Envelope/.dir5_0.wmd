@@ -1,0 +1,6 @@
+{
+    RootNode = /Local/Users/jgenest/Projets/Resound/Resound3DR2/Source/Modules/Envelope; 
+    Toolbar = Yes; 
+    ViewName = Icon; 
+    WindowFrame = "{x = 174; y = 169; width = 450; height = 437}"; 
+}

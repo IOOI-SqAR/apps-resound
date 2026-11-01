@@ -1,0 +1,54 @@
+Resound consists of several projects which are compiled separately;
+instead of making a complex single makefile, we've set up some
+simple scripts to do compilation for you.  We'll put these into
+a main makefile later when Rhapsody's makefile facility calms down.
+
+./Clean			Cleans out all object files, modules, and
+			Resound.app from the Source directory. Puts the
+			Source directory into a pristine state.
+
+./Build			Builds Resound.app and the modules for your
+	  		architecture.  Resound.app shows up in the 
+			Source directory.  The modules show up in the
+			Source/ModuleBinaries directory.
+
+./BuildFat		Same as ./Build, except it builds for both PPC
+			and Intel target architectures.
+
+./BuildModules		Builds just the modules for your architecture.
+			They show up in the Source/ModuleBinaries 
+			directory.
+
+./BuildFatModules	Same as ./BuildModules, except it builds for
+			both PPC and Intel target architectures.
+
+./OpenAllProjects	Opens all project files (of both Resound and
+			Modules) in ProjectBuilder.
+
+./FinallyInstall	Takes one argument, which is the directory to
+			install the distribution in.  In this directory,
+			./FinallyInstall will create the following
+			files or directories: (1) API, the API headers,
+			(2) ResoundModules, which holds stripped versions
+			of the modules built into Source/ModuleBinaries,
+			(3) README.html, copied from the Source directory,
+			(4) Resound.app, copied from the Source directory
+			and properly stripped.  To complete the
+			distribution, you should clean the Source
+			directory, then copy it or move it into the
+			distribution installation directory.
+
+EXAMPLE:
+If you've just unpacked the Resound distribution, and you'd like to
+completely reinstall the distribution, do the following:
+
+	cd Source
+	./BuildFat
+	./FinallyInstall ..
+	./Clean
+
+Since Source is already in the distribution directory, you don't need to
+move it.
+
+Sean Luke
+seanl@cs.umd.edu

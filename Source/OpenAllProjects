@@ -1,0 +1,7 @@
+#! /bin/sh
+
+open PB.project
+for i in `ls Modules`
+	do
+	open Modules/${i}/PB.project
+	done

@@ -1,0 +1,117 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<!-- Created with LatinByrd III -->
+<!-- File: /private/tmp/O_api/api/Module.rtf -->
+<!-- Date: Thu Apr 30 22:56:42 1998 -->
+<head>
+<title>Module</title>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" link="#0000FF" alink="#FF00FF" vlink="#FF0000">
+
+<basefont size=3>
+
+<p>Release 3.0, Copyright &copy;1998 by Sean Luke.&nbsp; All Rights Reserved.
+
+<p><br><br>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+4><b>Module</b></font>
+
+<p><br><br><br><br>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1><b>Subclass Of:</b> NSObject</font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1><b>Declared In:</b> Module.h</font>
+
+<p><br><br><br>
+
+<p><img src="../Images/sp.gif" width=68 height=1><font size=+2><b>Class Description</b></font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1>All modules you create should subclass from Module.&nbsp; Module contains two data items that are defined when the instance is initialized:</font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1><b>moduleController</b> is the instance that &#34;speaks&#34; to modules, using the protocol <b>ModuleProtocol</b>&nbsp;&nbsp; You don't need to know anything more about the Module Controller other than that it is responsible for loading, maintaining, and communicating with modules, and that it is your gateway to communicating with Resound.&nbsp; You send messages to and receive messages from TheModuleController in order to manipulate sound information in Resound.</font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1><b>rootModuleMenuNode</b> is the root node of your node tree for menu items you want to create in Resound's Modules menu.&nbsp; This is initially set to NULL--you are responsible for setting it a ModuleMenuNode, and setting up that node and its subnodes.&nbsp; For more information on this, see <b>ModuleMenuNode.h</b> . Always set up menu node information by overriding init, <b><i>but remember to call</i>&nbsp; [super init] <i>first.</i></b></font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1>There are three chief methods in Module:</font>
+
+<p><img src="../Images/sp.gif" width=126 height=1><font size=+1><b>init:</b>&nbsp; where you set up your ModuleMenuNode.&nbsp; See above.</font>
+
+<p><img src="../Images/sp.gif" width=126 height=1><font size=+1><b>setModuleControllerTo:</b>&nbsp; Resound calls this to set up TheModuleController.&nbsp; You should ignore this call.</font>
+
+<p><img src="../Images/sp.gif" width=126 height=1><font size=+1><b>getModuleMenuNode:</b>&nbsp; Resound calls this to get your ModuleMenuNode.&nbsp; It is called soon after init:, so be sure to have your node set up by then.</font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1>In addition, Module provides overridable auxillary methods to automatically inform your module about changes in the system.</font>
+
+<p><img src="../Images/sp.gif" width=68 height=1><font size=+2><b>Instance Variables</b></font>
+
+<p><br><br>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1><i>#define</i> <b>TheModuleController&nbsp;&nbsp;&nbsp; moduleController</b></font><br>
+<img src="../Images/sp.gif" width=105 height=1><font size=+1><i>#define</i> <b>TheModuleMenuNode&nbsp;&nbsp;&nbsp; rootModuleMenuNode</b></font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1>id &lt;ModuleProtocol&gt; <b>moduleController;</b></font><br>
+<img src="../Images/sp.gif" width=105 height=1><font size=+1>id <b>rootModuleMenuNode;</b></font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1>moduleController&nbsp; The Module's interface object to Resound.</font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1>moduleMenuNode&nbsp; The root ModuleMenuNode for the Module.</font>
+
+<p><br><br>
+
+<p><img src="../Images/sp.gif" width=68 height=1><font size=+2><b>Method Types</b></font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1>Object Maintenance - dealloc</font><br>
+<img src="../Images/sp.gif" width=307 height=1><font size=+1>- init</font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1>Informing the Module - soundDidChange</font><br>
+<img src="../Images/sp.gif" width=307 height=1><font size=+1>- nowPlaying</font><br>
+<img src="../Images/sp.gif" width=307 height=1><font size=+1>- nowRecording</font><br>
+<img src="../Images/sp.gif" width=307 height=1><font size=+1>- didPlay</font><br>
+<img src="../Images/sp.gif" width=307 height=1><font size=+1>- didRecord</font>
+
+<p><br><br>
+
+<p><img src="../Images/sp.gif" width=68 height=1><font size=+2><b>Instance Methods</b></font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1><b>dealloc</b></font><br>
+<img src="../Images/sp.gif" width=124 height=1><font size=+1>- (void) <b>dealloc</b></font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1>Frees the Module.&nbsp; This also frees TheModuleMenuNode and all of its subsidiary ModuleMenuNodes you have set up; you don't have to free them yourself.</font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1><b>didPlay</b></font><br>
+<img src="../Images/sp.gif" width=124 height=1><font size=+1>- <b>didPlay</b></font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1>Informs the module that a sound has just finished playing.</font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1><b>didRecord</b></font><br>
+<img src="../Images/sp.gif" width=124 height=1><font size=+1>- <b>didRecord</b></font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1>Informs the module that a sound has just finished recording.</font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1><b>init</b></font><br>
+<img src="../Images/sp.gif" width=124 height=1><font size=+1>- <b>init</b></font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1>Initializes the Module.&nbsp; You should override this method to set up your ModuleMenuNodes.&nbsp; Be <b>certain</b> to call [super init] <b>before anything else.</b></font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1><b>nowPlaying</b></font><br>
+<img src="../Images/sp.gif" width=124 height=1><font size=+1>- <b>nowPlaying</b></font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1>Informs the module that a sound is now playing.</font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1><b>nowRecording</b></font><br>
+<img src="../Images/sp.gif" width=124 height=1><font size=+1>- <b>nowRecording</b></font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1>Informs the module that a sound is now recording.</font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1><b>soundDidChange</b></font><br>
+<img src="../Images/sp.gif" width=124 height=1><font size=+1>- <b>soundDidChange</b></font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1>Informs the module that the current sound may have changed.&nbsp; Note: This may be called twice for the same sound change.</font>
+
+
+
+<p>
+
+</body>
+</html>

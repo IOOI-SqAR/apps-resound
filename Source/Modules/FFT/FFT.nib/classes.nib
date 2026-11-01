@@ -1,0 +1,58 @@
+{
+    IBClasses = (
+        {
+            CLASS = DiscreteGraphView; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                bottom_field = id; 
+                cursor = id; 
+                top_field = id; 
+                x_delegate = id; 
+                y_delegate = id; 
+            }; 
+            SUPERCLASS = NSView; 
+        }, 
+        {
+            ACTIONS = {redrawGraphs = id; toggleLinearAndDecibel = id; }; 
+            CLASS = FFTController; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {decibelButton = id; freqview = id; minimumdbfield = id; phasview = id; }; 
+            SUPERCLASS = Object; 
+        }, 
+        {
+            ACTIONS = {doFFT = id; showFFTPanel = id; }; 
+            CLASS = FFTModule; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {fftController = id; fftPanel = id; x = id; y = id; }; 
+            SUPERCLASS = Module; 
+        }, 
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {
+            CLASS = Module; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {TheModuleController = id; TheModuleMenuNode = id; }; 
+            SUPERCLASS = Object; 
+        }, 
+        {
+            ACTIONS = {turnOffMenu = id; turnOnMenu = id; }; 
+            CLASS = ModuleController; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                adjustButton = id; 
+                compactPanel = id; 
+                fileController = id; 
+                fileName = id; 
+                infoManager = id; 
+                loadPanel = id; 
+                moduleHelpView = id; 
+                moduleHelpWindow = id; 
+                pathName = id; 
+                selectionManager = id; 
+                soundManager = id; 
+                zoomController = id; 
+            }; 
+            SUPERCLASS = NSObject; 
+        }
+    ); 
+    IBVersion = 1; 
+}

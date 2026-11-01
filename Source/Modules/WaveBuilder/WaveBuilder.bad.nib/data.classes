@@ -1,0 +1,53 @@
+FirstResponder = {
+    ACTIONS = {
+    };
+    SUPERCLASS = Object;
+};
+Module = {
+    ACTIONS = {
+    };
+    OUTLETS = {
+	TheModuleController;
+	TheModuleMenuNode;
+    };
+    SUPERCLASS = Object;
+};
+WaveBuilderModule = {
+    ACTIONS = {
+	Fs:;
+	F:;
+	generateSin:;
+	A:;
+	doTriangle:;
+	Gs:;
+	cosA:;
+	doPulse:;
+	clear:;
+	G:;
+	B:;
+	C:;
+	As:;
+	doNoise:;
+	doSquare:;
+	doSawtooth:;
+	D:;
+	generateOthers:;
+	Cs:;
+	Ds:;
+	E:;
+    };
+    OUTLETS = {
+	PercentDoneSin;
+	OthersPanel;
+	SinAmplitudes;
+	SinHarmonics;
+	OthersLength;
+	SinePanel;
+	OthersSize;
+	OthersAmplitude;
+	PercentDoneothers;
+	SinLength;
+	SinPhases;
+    };
+    SUPERCLASS = Module;
+};

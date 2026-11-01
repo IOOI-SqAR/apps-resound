@@ -1,0 +1,107 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<!-- Created with LatinByrd III -->
+<!-- File: /private/tmp/O_api/api/ModuleSound.rtf -->
+<!-- Date: Thu Apr 30 22:56:42 1998 -->
+<head>
+<title>ModuleSound</title>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" link="#0000FF" alink="#FF00FF" vlink="#FF0000">
+
+<basefont size=3>
+
+<p>Release 3.0, Copyright &copy;1998 by Sean Luke.&nbsp; All Rights Reserved.
+
+<p><br><br>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+4><b>ModuleSound</b></font>
+
+<p><br><br><br><br>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1><b>Category Of:</b> Sound</font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1><b>Declared In:</b> ModuleSound.h</font>
+
+<p><br><br><br>
+
+<p><img src="../Images/sp.gif" width=68 height=1><font size=+2><b>Category Description</b></font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1>This category contains methods which Resound has added to the Sound object, and which module designers may find useful.&nbsp; There are two general categories of methods.&nbsp; First, there are a few methods (<b>sampleSize</b>, <b>sampleSizePerChannel</b>) which return typical Sound information.&nbsp; Then there are three methods designed to make possible easy rectangular Fast Fourier Transforms (FFTs) of sound information.&nbsp; An FFT converts a section of sound into an array showing its respective harmonics (amplitude, phase, and frequency information of the sine waves that make up the sound).&nbsp; This can be used for very sophisticated sound effects, if you know what you're doing.&nbsp;&nbsp; For more information, you should consult a signal processing textbook.</font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1>It is important to note that <b>you should not access a sound's info string.</b>&nbsp; Due to bugs in the SoundKit, Resound must maintain the Sound object's Info String separately in Resound's custom SoundView.&nbsp; There are access and modification methods there; see ModuleSoundView.rtf.</font>
+
+<p><img src="../Images/sp.gif" width=68 height=1><font size=+2><b>Method Types</b></font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1>Performing an FFT + performFFTFromSoundData:::::toFFTData::</font><br>
+<img src="../Images/sp.gif" width=306 height=1><font size=+1>+ performIFFTToSoundData:::::fromFFTData::</font><br>
+<img src="../Images/sp.gif" width=306 height=1><font size=+1>+ nextPositivePowerOfTwo:</font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1>Sample Size - sampleSize</font><br>
+<img src="../Images/sp.gif" width=307 height=1><font size=+1>-&#160;sampleSizePerChannel</font>
+
+<p><img src="../Images/sp.gif" width=68 height=1><font size=+2><b>Class Methods</b></font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1><b>performFFTFromSoundData:::::toFFTData::</b></font><br>
+<img src="../Images/sp.gif" width=124 height=1><font size=+1>- (int) <b>performFFTFromSoundData</b>:(char*)<i>data</i>:(int)<i>start_sample</i>:</font><br>
+<img src="../Images/sp.gif" width=143 height=1><font size=+1>(int)<i>sample_length</i>:(int)<i>dataFormat</i>:(int)<i>numChannels</i></font><br>
+<img src="../Images/sp.gif" width=162 height=1><font size=+1><b>toFFTData</b>:(float*)<i>fft_data</i>:(int)<i>fft_length</i></font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1>Performs a Fast Fourier Transform over <i>data</i> starting at <i>start_sample</i> and ending at <i>sample_length</i>.&nbsp; Data must be of format <i>dataFormat,</i> and have exactly 1 channel (so <i>numChannels</i> must be 1).&nbsp;&nbsp; Acceptable data formats include floating-point (the preferred format), double precision floating-point, 8-bit and 16-bit linear, and 8-bit MuLaw.&nbsp; If the number of channels or the data format is unacceptable, this method simply returns a 0, otherwise it performs the FFT and returns a 1.&nbsp; This FFT is a very simple one, using only a rectangular window, and based on code from <i>Numerical Recipies in C.</i></font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1>A Fast Fourier Transform requires that the length of the sampled sound be a power of 2.&nbsp; If <i>sample_length</i> is not a power of two, this method will perform an FFT with the remaining buffer area zeroed out; this means that when you're performing an iterated FFT over repeated samples in a sound, you should endeavour to have all of them have a <i>sample_length</i> of a power of 2, except perhaps the last one.</font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1><i>fft_length</i> is the length of the FFT buffer.&nbsp; This <i>must</i> be a power of 2, so <i>fft_length</i> should be set to the smallest positive power of 2 that is greater than or equal to <i>sample_length.</i>&nbsp; You can determine this length with</font>
+
+<p><img src="../Images/sp.gif" width=124 height=1><font size=+1><i>fft_length</i> = [Sound <b>nextPositivePowerOfTwo</b>:<i>sample_length</i>];</font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1><i>fft_data</i> is an array of&nbsp; <b><i>pairs of floats</i></b> representing the amplitude and phase of various frequencies.&nbsp; This means that <i>fft_data</i> must be <b><i>twice the length of</i></b>&nbsp; <i>fft_length.</i></font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1>If <i>r</i> is the sampling rate of your sound, then the frequencies in <i>fft_data</i> range from -<i>r</i> up to just below <i>r</i> (since <i>fft_length </i>is even, and 0 is represented at position <i>fft_length/2</i>, there's one more data point for negative frequencies than for positive frequencies.&nbsp; However, the far left value ( -<i>r</i> ) in the array will always be theoretically identical to the &#34;missing&#34; far-right value in the array ( <i>r</i> ) .)&nbsp; The amplitude component of each pair ranges from 0 to 1.&nbsp; The phase component of each pair ranges from -<img src="../Images/c70.gif" width=8 height=7> to <img src="../Images/c70.gif" width=8 height=7>.</font>
+
+<p><br><br>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1><b>performIFFTToSoundData:::::fromFFTData::</b></font><br>
+<img src="../Images/sp.gif" width=124 height=1><font size=+1>- (int) <b>performIFFTToSoundData</b>:(char*)<i>data</i>:(int)<i>start_sample</i>:</font><br>
+<img src="../Images/sp.gif" width=143 height=1><font size=+1>(int)<i>sample_length</i>:(int)<i>dataFormat</i>:(int)<i>numChannels</i></font><br>
+<img src="../Images/sp.gif" width=162 height=1><font size=+1><b>fromFFTData</b>:(float*)<i>fft_data</i>:(int)<i>fft_length</i></font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1>Performs an inverse Fast Fourier Transform (IFFT) over <i>data</i> starting at <i>start_sample</i> and ending at <i>sample_length</i>. Data must be of format <i>dataFormat,</i> and have exactly 1 channel (so <i>numChannels</i> must be 1).&nbsp; Acceptable data formats include floating-point (the preferred format), double precision floating-point, 8-bit and 16-bit linear, and 8-bit MuLaw.&nbsp; If the number of channels or the data format is unacceptable, this method simply returns a 0, otherwise it performs the IFFT and returns a 1.&nbsp; This IFFT is a very simple one, using only a rectangular window, and based on code from <i>Numerical Recipies in C.</i></font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1>You should perform this IFFT over exactly the same data you performed the FFT over, using <b>performFFTFromSoundData:::::toFFTData::</b>.</font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1><i>fft_length</i> is the length of the FFT buffer.&nbsp; This must be a power of 2, so <i>fft_length</i> should be set to the smallest positive power of 2 that is greater than or equal to <i>sample_length.</i>&nbsp; You can determine this length with</font>
+
+<p><img src="../Images/sp.gif" width=124 height=1><font size=+1><i>fft_length</i> = [Sound <b>nextPositivePowerOfTwo</b>:<i>sample_length</i>];</font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1><i>fft_data</i> is an array of&nbsp; <b><i>pairs of floats</i></b> representing the amplitude and phase of various frequencies.&nbsp; This means that <i>fft_data</i> must be <b><i>twice the length of</i></b>&nbsp; <i>fft_length.</i>&nbsp;&nbsp; The amplitude component of each pair must range from 0 to 1.&nbsp; The phase component of each pair must range from -<img src="../Images/c70.gif" width=8 height=7> to <img src="../Images/c70.gif" width=8 height=7>.</font>
+
+<p><br><br>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1><b>nextPositivePowerOfTwo:</b></font><br>
+<img src="../Images/sp.gif" width=124 height=1><font size=+1>- (int) <b>nextPositivePowerOfTwo</b>:(char*)<i>value</i></font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1>Returns the smallest positive power of two that is greater than or equal to <i>value.</i></font>
+
+<p><br><br>
+
+<p><img src="../Images/sp.gif" width=68 height=1><font size=+2><b>Instance Methods</b></font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1><b>sampleSize</b></font><br>
+<img src="../Images/sp.gif" width=124 height=1><font size=+1>- (int) <b>sampleSize</b></font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1>Returns the size of a single sample of the sound, that is, the size in bytes of each channel-independent sample times the number of channels.</font>
+
+<p><br><br>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1><b>sampleSizePerChannel</b></font><br>
+<img src="../Images/sp.gif" width=124 height=1><font size=+1>- (int) <b>sampleSizePerChannel</b></font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1>Returns the size of a single sample of the sound for <i>one</i> channel in bytes.</font>
+
+
+
+<p><br>
+
+</body>
+</html>

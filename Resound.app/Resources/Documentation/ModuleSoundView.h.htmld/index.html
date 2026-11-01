@@ -1,0 +1,88 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<!-- Created with LatinByrd III -->
+<!-- File: /private/tmp/O_api/api/ModuleSoundView.rtf -->
+<!-- Date: Thu Apr 30 22:56:42 1998 -->
+<head>
+<title>ModuleSoundView</title>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" link="#0000FF" alink="#FF00FF" vlink="#FF0000">
+
+<basefont size=3>
+
+<p>Release 3.0, Copyright &copy;1998 by Sean Luke.&nbsp; All Rights Reserved.
+
+<p><br><br>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+4><b>ModuleSoundView</b></font>
+
+<p><br><br><br><br>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1><b>Category Of:</b> Sound</font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1><b>Declared In:</b> ModuleSoundView.h</font>
+
+<p><br><br><br>
+
+<p><img src="../Images/sp.gif" width=68 height=1><font size=+2><b>Category Description</b></font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1>This category contains specific methods which Resound has added to its internal subclass of the SoundView object, which module designers may find useful.</font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1>It is important to note that <b>you should not access a sound's info string.</b>&nbsp; Due to bugs in the SoundKit, Resound must maintain the Sound object's Info String separately in Resound's custom SoundView.&nbsp; Below are methods for accessing Resound's special Info String.</font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1>Rhapsody has introduced a nasty new bug to the SoundKit.&nbsp; Ordinarily, just before a SoundView is hooked into a window (or unhooked from it), it calls a series of <b>showCursor:</b> and <b>hideCursor:</b> methods intended to make certain that only one SoundView at a time has the sound cursor (the blinking vertical line) in it.&nbsp; Problem is, these methods also tell the SoundView to draw itself.&nbsp; But it's not been hooked into its window yet, so it throws out an assertion that looks something like &#34;Lock Focus called on a view which is not in a window&#34;.&nbsp; In previous versions of NeXTSTEP, this assertion just printed a message out to the console.&nbsp; But in Rhapsody/OPENSTEP, this assertion throws an exception, which stops execution of the current code dead in its tracks.</font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1>The solution to this is only available for Resound's special SoundView subclass, a copy of which is obtainable from the ModuleProtocol protocol.&nbsp; For this subclass, wrap in a pair of <b>setIgnoreShowAndHideCursor:<i>YES</i></b> and <b>setIgnoreShowAndHideCursor:<i>YES</i></b> calls all the code that hooks (or unhooks) the SoundView or one of its superviews to a new superview or to the window, and you won't triggger this bug.&nbsp; For ordinary SoundViews, <b>setIgnoreShowAndHideCursor:</b> does nothing at all and you'll still trigger the bug if you're not careful.</font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1>Another fun bug occurs when modifying a sound that currently has data on the pasteboard; if you modify sound (shortening it for example) you run the risk of messing up what the SoundView and/or the user had thought he had pasted.  The workaround for this is to call <b>checkForCurrentDataOnPasteboard</b> just before you begin to modify the sound.  Resound will handle the rest.
+
+
+<p><img src="../Images/sp.gif" width=68 height=1><font size=+2><b>Method Types</b></font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1>Sound Info String Access - info</font><br>
+<img src="../Images/sp.gif" width=307 height=1><font size=+1>- setInfo:</font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1>Data Format Conversion - convertToFormat:samplingRate:channelCount:</font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1>Rhapsody Bug Workarounds - setIgnoreShowAndHideCursor:</font>
+<br>
+<img src="../Images/sp.gif" width=307 height=1><font size=+1>- checkForCurrentDataOnPasteboard:</font>
+<p><br><br>
+
+<p><img src="../Images/sp.gif" width=68 height=1><font size=+2><b>Instance Methods</b></font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1><b>checkForCurrentDataOnPasteboard</b></font><br>
+<img src="../Images/sp.gif" width=124 height=1><font size=+1>- (void) <b>checkForCurrentDataOnPasteboard</b></font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1>Tells the SoundView to check to see if it has data on the Pasteboard.  If it does, it either moves the data entirely to the pasteboard or eliminates it.  This method should be called before you modify a SoundView.</font>
+
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1><b>convertToFormat:samplingRate:channelCount:</b></font><br>
+<img src="../Images/sp.gif" width=124 height=1><font size=+1>- (int) <b>convertToFormat</b>:(int)<i>newFormat</i></font><br>
+<img src="../Images/sp.gif" width=162 height=1><font size=+1><b>samplingRate</b>:(double)<i>newRate</i></font><br>
+<img src="../Images/sp.gif" width=162 height=1><font size=+1><b>channelCount</b>:(int)<i>newChannelCount</i></font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1>Converts the SoundView's sound to the given format, sampling rate, and channel count, but attempts to preserve the SoundView selection to still select the equivalent part of the sound.</font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1><b>info</b></font><br>
+<img src="../Images/sp.gif" width=124 height=1><font size=+1>- (char*) <b>info</b></font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1>Returns the info string of the SoundView's sound.&nbsp; See above.</font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1><b>setInfo:</b></font><br>
+<img src="../Images/sp.gif" width=124 height=1><font size=+1>- <b>setInfo:</b>(const char*)<i>this</i></font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1>Sets the info string of the SoundView's sound to <i>this</i>.&nbsp; See above.</font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1><b>setIgnoreShowAndHideCursor:</b></font><br>
+<img src="../Images/sp.gif" width=124 height=1><font size=+1>- (void) <b>setIgnoreShowAndHideCursor:</b>(BOOL)<i>this</i></font>
+
+<p><img src="../Images/sp.gif" width=105 height=1><font size=+1>Tells the SoundView to ignore its <b>showCursor:</b> and <b>hideCursor:</b> method invocations.&nbsp; This is an abstract method: in ordinary SoundViews, this method does nothing at all.&nbsp; But Resound's special version of SoundViews, which are obtainable only from the ModuleProtocol protocol, override this method to do proper ignoring.&nbsp; See the discussion above for why this method is necessary.</font>
+
+
+
+<p>
+
+</body>
+</html>

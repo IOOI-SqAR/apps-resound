@@ -1,0 +1,134 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<!-- Created with LatinByrd III -->
+<!-- File: /private/tmp/O_Help/Help/ModuleMenuNode.h.rtfd -->
+<!-- Date: Thu Apr 30 20:19:00 1998 -->
+<head>
+<title>ModuleMenuNode.h</title>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" link="#0000FF" alink="#FF00FF" vlink="#FF0000">
+
+<basefont size=3>
+
+<p>
+
+<p><font size=+2><b>ModuleMenuNode.h</b></font>
+
+<hr noshade size=1>
+
+<p>This object stores menu information to be passed to Resound from modules.&nbsp; Future versions will eliminate this node (I hope), when IB is able to generate menus without an application (or I learn to).
+
+<p>The Module Menu Node is a tree node.&nbsp; The root (top) node of the tree should be set with a blank name.&nbsp; This node contains all the menu items to be added directly to Resound's <b>Modules</b> menu&nbsp; <a href="../ModulesMenu.htmld/index.html"><img src="../Images/link.gif" width=10 height=10 vspace=3 border=0></a>. Children nodes have names, and the menu items <i>they</i> contain are for custom submenus off of the Modules Menu.
+
+<p>Let's say you want to make two menu options in the Modules menu. One is just a standard menu option, called &#34;Tweak&#34;.&nbsp; The other displays a submenu, called &#34;Twist&#34;, with submenu items &#34;Bend&#34;, &#34;Break&#34;, and &#34;Bust&#34;.&nbsp; You'd generate a tree like this:
+
+<p><b>(Root Node)</b><br>
+<img src="../Images/sp.gif" width=18 height=1><i>Name</i>&nbsp; &#34;&#34;&nbsp;&nbsp; <i>(empty string)</i><br>
+<img src="../Images/sp.gif" width=18 height=1><i>Receiver</i>&nbsp; NULL&nbsp; <i>(indicates this node has submenus)</i><br>
+<img src="../Images/sp.gif" width=18 height=1><i>Message&nbsp;&nbsp;&nbsp; (not set)</i><br>
+<img src="../Images/sp.gif" width=18 height=1><i>Length</i>&nbsp; 2&nbsp; <i>(for Tweak and Twist)</i><br>
+<img src="../Images/sp.gif" width=18 height=1><i>Submenu[0]</i>&nbsp; points to the node Tweak<br>
+<img src="../Images/sp.gif" width=18 height=1><i>Submenu[1]</i>&nbsp; points to the node Twist
+
+<p><b>Tweak</b><br>
+<img src="../Images/sp.gif" width=18 height=1><i>Name</i>&nbsp; &#34;Tweak&#34;<br>
+<img src="../Images/sp.gif" width=18 height=1><i>Receiver</i>&nbsp; object that will receive the Tweak message<br>
+<img src="../Images/sp.gif" width=18 height=1><i>Message</i>&nbsp; selector of message sent to Tweak's receiver<br>
+<img src="../Images/sp.gif" width=18 height=1><i>Length</i>&nbsp; 0<br>
+<img src="../Images/sp.gif" width=18 height=1><i>Submenu...&nbsp;&nbsp;&nbsp; (not set)</i>
+
+<p><b>Twist</b><br>
+<img src="../Images/sp.gif" width=18 height=1><i>Name</i>&nbsp; &#34;Twist&#34;<br>
+<img src="../Images/sp.gif" width=18 height=1><i>Receiver</i>&nbsp; NULL&nbsp; <i>(indicates this node has submenus)</i><br>
+<img src="../Images/sp.gif" width=18 height=1><i>Message&nbsp;&nbsp;&nbsp; (not set)</i><br>
+<img src="../Images/sp.gif" width=18 height=1><i>Length</i>&nbsp; 3&nbsp; <i>(for Bend, Break, and Bust)</i><br>
+<img src="../Images/sp.gif" width=18 height=1><i>Submenu[0]</i>&nbsp; points to the node Bend<br>
+<img src="../Images/sp.gif" width=18 height=1><i>Submenu[1]</i>&nbsp; points to the node Break<br>
+<img src="../Images/sp.gif" width=18 height=1><i>Submenu[2]</i>&nbsp; points to the node Bust
+
+<p><b>Bend</b><br>
+<img src="../Images/sp.gif" width=18 height=1><i>Name</i>&nbsp; &#34;Bend&#34;<br>
+<img src="../Images/sp.gif" width=18 height=1><i>Receiver</i>&nbsp; object that will receive the Bend message<br>
+<img src="../Images/sp.gif" width=18 height=1><i>Message</i>&nbsp; selector of message sent to Bend's receiver<br>
+<img src="../Images/sp.gif" width=18 height=1><i>Length</i>&nbsp; 0<br>
+<img src="../Images/sp.gif" width=18 height=1><i>Submenu...&nbsp;&nbsp;&nbsp; (not set)</i>
+
+<p><b>Break</b><br>
+<img src="../Images/sp.gif" width=18 height=1><i>Name</i>&nbsp; &#34;Break&#34;<br>
+<img src="../Images/sp.gif" width=18 height=1><i>Receiver</i>&nbsp; object that will receive the Break message<br>
+<img src="../Images/sp.gif" width=18 height=1><i>Message</i>&nbsp; selector of message sent to Break's receiver<br>
+<img src="../Images/sp.gif" width=18 height=1><i>Length</i>&nbsp; 0<br>
+<img src="../Images/sp.gif" width=18 height=1><i>Submenu...&nbsp;&nbsp;&nbsp; (not set)</i>
+
+<p><b>Bust</b><br>
+<img src="../Images/sp.gif" width=18 height=1><i>Name</i>&nbsp; &#34;Bust&#34;<br>
+<img src="../Images/sp.gif" width=18 height=1><i>Receiver</i>&nbsp; object that will receive the Bust message<br>
+<img src="../Images/sp.gif" width=18 height=1><i>Message</i>&nbsp; selector of message sent to Bust's receiver<br>
+<img src="../Images/sp.gif" width=18 height=1><i>Length</i>&nbsp; 0<br>
+<img src="../Images/sp.gif" width=18 height=1><i>Submenu...&nbsp;&nbsp;&nbsp; (not set)</i>
+
+<p><img src="../Images/sp.gif" width=3 height=1>To do this, you might&nbsp; write write the <b>init</b> method of your module to look like:
+
+<p><img src="../Images/sp.gif" width=3 height=1><tt>- init</tt><br>
+<img src="../Images/sp.gif" width=18 height=1><tt>{</tt><br>
+<img src="../Images/sp.gif" width=18 height=1><tt>id returnVal=[super init];</tt><br>
+<img src="../Images/sp.gif" width=32 height=1><tt>// ABSOLUTELY CALL [super init] FIRST!!!</tt>
+
+<p><img src="../Images/sp.gif" width=18 height=1><tt>ModuleMenuNode* tweak=</tt><br>
+<img src="../Images/sp.gif" width=90 height=1><tt>[[ModuleMenuNode alloc] init];</tt><br>
+<img src="../Images/sp.gif" width=18 height=1><tt>ModuleMenuNode* twist=</tt><br>
+<img src="../Images/sp.gif" width=90 height=1><tt>[[ModuleMenuNode alloc] init];</tt><br>
+<img src="../Images/sp.gif" width=18 height=1><tt>ModuleMenuNode* bend=</tt><br>
+<img src="../Images/sp.gif" width=90 height=1><tt>[[ModuleMenuNode alloc] init];</tt><br>
+<img src="../Images/sp.gif" width=18 height=1><tt>ModuleMenuNode* break=</tt><br>
+<img src="../Images/sp.gif" width=90 height=1><tt>[[ModuleMenuNode alloc] init];</tt><br>
+<img src="../Images/sp.gif" width=18 height=1><tt>ModuleMenuNode* bust=</tt><br>
+<img src="../Images/sp.gif" width=90 height=1><tt>[[ModuleMenuNode alloc] init];</tt>
+
+<p><img src="../Images/sp.gif" width=18 height=1><tt>[TheModuleMenuNode setReceiver:NULL];</tt><br>
+<img src="../Images/sp.gif" width=18 height=1><tt>[TheModuleMenuNode setLength:2];</tt><br>
+<img src="../Images/sp.gif" width=18 height=1><tt>[TheModuleMenuNode setSubmenu: 0 : tweak];</tt><br>
+<img src="../Images/sp.gif" width=18 height=1><tt>[TheModuleMenuNode setSubmenu: 1 : twist];</tt>
+
+<p><img src="../Images/sp.gif" width=18 height=1><tt>[tweak setName: &#34;Tweak&#34;];</tt><br>
+<img src="../Images/sp.gif" width=18 height=1><tt>[tweak setReceiver: self];</tt><br>
+<img src="../Images/sp.gif" width=18 height=1><tt>[tweak setMessage:@selector(tweakMe:)];</tt><br>
+<img src="../Images/sp.gif" width=18 height=1><tt>[tweak setLength:0];</tt>
+
+<p><img src="../Images/sp.gif" width=18 height=1><tt>[twist setReceiver:NULL];</tt><br>
+<img src="../Images/sp.gif" width=18 height=1><tt>[twist setLength:3];</tt><br>
+<img src="../Images/sp.gif" width=18 height=1><tt>[twist setSubmenu: 0 : bend];</tt><br>
+<img src="../Images/sp.gif" width=18 height=1><tt>[twist setSubmenu: 1 : break];</tt><br>
+<img src="../Images/sp.gif" width=18 height=1><tt>[twist setSubmenu: 2 : bust];</tt>
+
+<p><img src="../Images/sp.gif" width=18 height=1><tt>[bend setName: &#34;Bend&#34;];</tt><br>
+<img src="../Images/sp.gif" width=18 height=1><tt>[bend setReceiver: self];</tt><br>
+<img src="../Images/sp.gif" width=18 height=1><tt>[bend setMessage:@selector(bendMe:)];</tt><br>
+<img src="../Images/sp.gif" width=18 height=1><tt>[bend setLength:0];</tt>
+
+<p><img src="../Images/sp.gif" width=18 height=1><tt>[break setName: &#34;Break&#34;];</tt><br>
+<img src="../Images/sp.gif" width=18 height=1><tt>[break setReceiver: self];</tt><br>
+<img src="../Images/sp.gif" width=18 height=1><tt>[break setMessage:@selector(breakMe:)];</tt><br>
+<img src="../Images/sp.gif" width=18 height=1><tt>[break setLength:0];</tt>
+
+<p><img src="../Images/sp.gif" width=18 height=1><tt>[bust setName: &#34;Bust&#34;];</tt><br>
+<img src="../Images/sp.gif" width=18 height=1><tt>[bust setReceiver: self];</tt><br>
+<img src="../Images/sp.gif" width=18 height=1><tt>[bust setMessage:@selector(bustMe:)];</tt><br>
+<img src="../Images/sp.gif" width=18 height=1><tt>[bust setLength:0];</tt>
+
+<p><img src="../Images/sp.gif" width=18 height=1><tt>return returnVal;</tt><br>
+<img src="../Images/sp.gif" width=18 height=1><tt>}</tt>
+
+<p><font size=+1>As a result, Resound would create menus in its Modules menu as such:</font>
+
+<p><img src="paste.gif" width=162 height=103>
+
+<p><font size=+1>Resound attaches the appropriate receiver to as the target of Tweak, Bend, Break, and Bust, and sets them to call the appropriate message.&nbsp; In the example above, the receivers of all menus have been set to your own module, and the modules will call, respectively, <b>tweakMe:, bendMe:, breakMe:,</b> or <b>bustMe:.</b></font>
+
+<p><font size=+1>You don't need to free the nodes--that's taken care of for you by Module's <b>free</b> method.</font>
+
+
+
+</body>
+</html>

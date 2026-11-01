@@ -1,0 +1,36 @@
+{
+    IBClasses = (
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {
+            ACTIONS = {
+                absIt = id; 
+                double = id; 
+                halve = id; 
+                invertIt = id; 
+                maximize = id; 
+                multiplyIt = id; 
+                reverseIt = id; 
+                shiftIt = id; 
+                showMultiplyPanel = id; 
+                showShiftPanel = id; 
+            }; 
+            CLASS = MathModule; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                multiplyPanel = id; 
+                percentChangeField = id; 
+                percentChangeScroller = id; 
+                shiftPanel = id; 
+                shiftSliderValue = id; 
+            }; 
+            SUPERCLASS = Module; 
+        }, 
+        {
+            CLASS = Module; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {TheModuleController = id; TheModuleMenuNode = id; }; 
+            SUPERCLASS = Object; 
+        }
+    ); 
+    IBVersion = 1; 
+}

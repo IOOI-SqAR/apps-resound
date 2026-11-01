@@ -1,0 +1,6 @@
+{
+    RootNode = "~/Projets/Resound/Resound3.ori/Source/FileType.subproj"; 
+    Toolbar = Yes; 
+    ViewName = Icon; 
+    WindowFrame = "{x = 507; y = 166; width = 468; height = 437}"; 
+}

@@ -1,0 +1,26 @@
+{
+    IBClasses = (
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {
+            ACTIONS = {cancelled = id; okayed = id; turnOffMenu = id; turnOnMenu = id; }; 
+            CLASS = ModuleController; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                adjustButton = id; 
+                compactPanel = id; 
+                fileController = id; 
+                fileName = id; 
+                infoManager = id; 
+                loadPanel = id; 
+                moduleHelpView = id; 
+                moduleHelpWindow = id; 
+                pathName = id; 
+                selectionManager = id; 
+                soundManager = id; 
+                zoomController = id; 
+            }; 
+            SUPERCLASS = NSObject; 
+        }
+    ); 
+    IBVersion = 1; 
+}
